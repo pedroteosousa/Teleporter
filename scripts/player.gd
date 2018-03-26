@@ -1,27 +1,33 @@
 extends KinematicBody2D
 
-var balls = ["res://scenes/SimpleBall.tscn"]
+var balls = ["res://scenes/SimpleBall.tscn", "res://scenes/CrazyBall.tscn"]
 var current_ball = null
 
 var gravity = Vector2(0, 100)
 var velocity = Vector2(0, 0)
 
-func _input(event):
-	print(event)
-	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
-		if current_ball:
-			current_ball.queue_free()
-		current_ball = load(balls[0]).instance()
-		var dir = get_local_mouse_position()
-		current_ball.go(dir)
-		add_child(current_ball)
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 2 and current_ball:
-		var teleport_location = current_ball.get_position() + get_position()
-		set_position(teleport_location)
-		teleport_location = null
-		velocity = Vector2(0, 0)
-		current_ball.queue_free()
+func delete_ball():
+	if current_ball:
+		if current_ball.get_ref():
+			current_ball.get_ref().queue_free()
 		current_ball = null
+	
+func create_ball(index):
+	current_ball = weakref(load(balls[index]).instance())
+	var dir = get_local_mouse_position()
+	current_ball.get_ref().set_position(get_position())
+	current_ball.get_ref().go(dir)
+	get_parent().add_child(current_ball.get_ref())
+
+func _input(event):
+	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
+		delete_ball()
+		create_ball(0)
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 2 and current_ball:
+		if current_ball.get_ref():
+			set_position(current_ball.get_ref().get_position())
+		velocity = Vector2(0, 0)
+		delete_ball()
 
 func _physics_process(delta):
 	velocity += gravity * delta
@@ -29,5 +35,4 @@ func _physics_process(delta):
 
 func _ready():
 	set_physics_process(true)
-	set_process(true)
 	set_process_input(true)
