@@ -1,6 +1,8 @@
-extends RigidBody2D
+extends KinematicBody2D
 
-var speed = 400:wq
+var speed = 300
+var velocity = Vector2(0, 0)
+var bounce = 1.0
 
 func limit_velocity(dir):
 	if dir.length() > speed:
@@ -8,7 +10,12 @@ func limit_velocity(dir):
 	return dir
 
 func go(dir):
-	set_linear_velocity(get_linear_velocity() + limit_velocity(dir))
+	velocity = limit_velocity(dir)
 
+func _physics_process(delta):
+	var collision = move_and_collide(velocity*delta)
+	if collision:
+		velocity = velocity.bounce(collision.normal)*bounce
+		
 func _ready():
-	pass
+	set_physics_process(true)
