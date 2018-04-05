@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/teleporter.png-3131de3c2930f739090a7470f1cd5d55.stex"
+path="res://.import/exit.png-4921f579e1e36bd5d5e2b4dfc88b821e.stex"
 
 [deps]
 
-source_file="res://images/mainmenu/teleporter.png"
-source_md5="5aa8a11690e763b1f32c6674d55fd0be"
+source_file="res://images/mainmenu/exit.png"
+source_md5="c7ffe599c610e8976eac5dbd95525102"
 
-dest_files=[ "res://.import/teleporter.png-3131de3c2930f739090a7470f1cd5d55.stex" ]
-dest_md5="e54e60ba1a2c7f09a7d58787b0c6021a"
+dest_files=[ "res://.import/exit.png-4921f579e1e36bd5d5e2b4dfc88b821e.stex" ]
+dest_md5="4e127f7740daf4dd01f5aa9c3de6fc66"
 
 [params]
 

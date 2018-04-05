@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://images/mainmenu/teleporter.png" type="Texture" id=1]
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=2]
 [ext_resource path="res://images/mainmenu/newgame.png" type="Texture" id=3]
 [ext_resource path="res://images/mainmenu/continue.png" type="Texture" id=4]
 [ext_resource path="res://images/mainmenu/options.png" type="Texture" id=5]
-[ext_resource path="res://images/mainmenu/logo.png" type="Texture" id=6]
+[ext_resource path="res://images/mainmenu/exit.png" type="Texture" id=6]
+[ext_resource path="res://images/mainmenu/logo.png" type="Texture" id=7]
 
 [node name="MarginContainer" type="MarginContainer" index="0"]
 
@@ -13,7 +14,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 91.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -24,6 +24,7 @@ custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
 custom_constants/margin_bottom = 80
+_sections_unfolded = [ "custom_constants" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
 
@@ -34,7 +35,7 @@ anchor_bottom = 0.0
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 904.0
-margin_bottom = 611.0
+margin_bottom = 520.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -50,7 +51,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 500.0
-margin_bottom = 531.0
+margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -66,7 +67,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 500.0
-margin_bottom = 250.0
+margin_bottom = 100.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -82,33 +83,34 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 254.0
+margin_top = 104.0
 margin_right = 500.0
-margin_bottom = 531.0
+margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
-custom_constants/separation = 15
-alignment = 0
+custom_constants/separation = 10
+alignment = 1
 script = ExtResource( 2 )
-_sections_unfolded = [ "Rect", "custom_constants" ]
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Mouse", "Rect", "custom_constants" ]
 
-[node name="New Game" type="Button" parent="HBoxContainer/VBoxContainer/Menu Options" index="0"]
+[node name="New game" type="Button" parent="HBoxContainer/VBoxContainer/Menu Options" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 31.0
 margin_right = 500.0
-margin_bottom = 61.0
+margin_bottom = 92.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
-mouse_default_cursor_shape = 0
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
 toggle_mode = false
@@ -119,6 +121,7 @@ group = null
 icon = ExtResource( 3 )
 flat = true
 align = 1
+_sections_unfolded = [ "Margin", "Mouse", "Rect", "Theme", "Visibility", "custom_colors", "custom_styles" ]
 
 [node name="Continue" type="Button" parent="HBoxContainer/VBoxContainer/Menu Options" index="1"]
 
@@ -126,9 +129,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 76.0
+margin_top = 102.0
 margin_right = 500.0
-margin_bottom = 137.0
+margin_bottom = 163.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -143,6 +146,7 @@ group = null
 icon = ExtResource( 4 )
 flat = true
 align = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="Options" type="Button" parent="HBoxContainer/VBoxContainer/Menu Options" index="2"]
 
@@ -150,9 +154,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 152.0
+margin_top = 173.0
 margin_right = 500.0
-margin_bottom = 213.0
+margin_bottom = 234.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -167,6 +171,32 @@ group = null
 icon = ExtResource( 5 )
 flat = true
 align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer/Menu Options" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 244.0
+margin_right = 500.0
+margin_bottom = 305.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+icon = ExtResource( 6 )
+flat = true
+align = 1
+_sections_unfolded = [ "Rect" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" index="1"]
 
@@ -176,7 +206,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 504.0
 margin_right = 784.0
-margin_bottom = 531.0
+margin_bottom = 440.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -193,16 +223,17 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 15.0
-margin_top = 140.0
+margin_top = 95.0
 margin_right = 265.0
-margin_bottom = 390.0
+margin_bottom = 345.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 6 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
 stretch_mode = 0
+_sections_unfolded = [ "Size Flags" ]
 
 
