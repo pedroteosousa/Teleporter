@@ -5,6 +5,7 @@
 
 [node name="Universe" type="Node" index="0"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Map" type="TileMap" parent="." index="0"]

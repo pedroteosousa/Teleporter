@@ -14,6 +14,19 @@ config/name="Teleporter"
 run/main_scene="res://scenes/Universe.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+settings="*res://scripts/settings.gd"
+
+[display]
+
+window/size/width=1025
+window/size/height=601
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[settings]
+
+mute=false
