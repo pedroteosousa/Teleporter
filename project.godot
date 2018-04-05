@@ -11,8 +11,12 @@ config_version=3
 [application]
 
 config/name="Teleporter"
-run/main_scene="res://scenes/Universe.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [rendering]
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/universe.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tilesets/tileset.res" type="TileSet" id=2]
 
-[node name="Universe" type="Node" index="0"]
+[node name="Universe" type="Node"]
 
 script = ExtResource( 1 )
 
