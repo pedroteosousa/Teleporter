@@ -9,7 +9,7 @@ func _ready():
 		var tile = map.get_cell(cell.x, cell.y)
 		var name = tileset.tile_get_name(tile)
 		var path = basePath + name + ".tscn"
-		var pos = cell*32
+		var pos = cell * map.cell_size.x
 		var object = load(path).instance()
 		object.set_position(pos)
 		add_child(object)
