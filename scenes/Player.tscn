@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 20, 20 )
+extents = Vector2( 16, 16 )
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -19,9 +19,8 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Node2D" type="Sprite" parent="." index="0"]
 
-position = Vector2( -2.38419e-07, 2.38419e-07 )
-scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
