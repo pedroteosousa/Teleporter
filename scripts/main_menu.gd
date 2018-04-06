@@ -15,6 +15,8 @@ func on_pressed(button_name):
 		print("click on Continue")
 	elif name == "Options":
 		print("click on Options")
+		get_tree().change_scene("res://scenes/SettingsMenu.tscn")
 	elif name == "Exit":
 		print("click on Exit")
+		get_tree().quit()
 		
