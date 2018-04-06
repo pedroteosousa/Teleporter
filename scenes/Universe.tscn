@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/universe.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tilesets/tileset.res" type="TileSet" id=2]
+[ext_resource path="res://scripts/SaveButton.gd" type="Script" id=3]
+[ext_resource path="res://scripts/LoadButton.gd" type="Script" id=4]
 
 [node name="Universe" type="Node" index="0"]
 
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Map" type="TileMap" parent="." index="0"]
 
+position = Vector2( -162.061, 0 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
@@ -28,5 +30,94 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262142, 1, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -65541, 0, 0, -131069, 0, 0, -5, 0, 0, -65533, 0, 0, 65531, 0, 0, 3, 0, 0, 131067, 0, 0, 65539, 0, 0, 196603, 0, 0, 131075, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Transform" ]
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -500.0
+margin_top = -404.0
+margin_right = -160.0
+margin_bottom = -217.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 340.0
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 332.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Save"
+flat = false
+align = 1
+script = ExtResource( 3 )
+
+[node name="LoadButton" type="Button" parent="MarginContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 332.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Load"
+flat = false
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SaveButton" to="MarginContainer/VBoxContainer/SaveButton" method="_on_SaveButton_pressed"]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LoadButton" to="MarginContainer/VBoxContainer/LoadButton" method="_on_LoadButton_pressed"]
 
 

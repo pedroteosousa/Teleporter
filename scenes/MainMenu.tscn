@@ -8,6 +8,7 @@
 [ext_resource path="res://images/mainmenu/exit.png" type="Texture" id=6]
 [ext_resource path="res://images/mainmenu/logo.png" type="Texture" id=7]
 
+[node name="MarginContainer" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -33,6 +34,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 120.0
 margin_top = 80.0
+margin_right = 905.0
+margin_bottom = 521.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -43,11 +46,13 @@ alignment = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 500.0
+margin_bottom = 441.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -75,12 +80,14 @@ stretch_mode = 0
 
 [node name="Menu Options" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 104.0
 margin_right = 500.0
+margin_bottom = 441.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -99,6 +106,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 31.0
+margin_right = 500.0
 margin_bottom = 92.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -199,6 +207,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 504.0
+margin_right = 785.0
+margin_bottom = 441.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0

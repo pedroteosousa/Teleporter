@@ -36,3 +36,12 @@ func _physics_process(delta):
 func _ready():
 	set_physics_process(true)
 	set_process_input(true)
+
+func save():
+	var save_dict = {
+		pos = {
+			x = global_position.x,
+			y = global_position.y
+		}
+	}
+	return save_dict

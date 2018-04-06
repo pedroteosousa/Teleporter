@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 settings="*res://scripts/settings.gd"
+save="*res://scripts/save.gd"
 
 [display]
 
