@@ -1,46 +1,21 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/universe.gd" type="Script" id=1]
-[ext_resource path="res://scenes/tilesets/tileset.res" type="TileSet" id=2]
-[ext_resource path="res://scripts/SaveButton.gd" type="Script" id=3]
-[ext_resource path="res://scripts/LoadButton.gd" type="Script" id=4]
-[ext_resource path="res://scenes/Button.gd" type="Script" id=5]
-[ext_resource path="res://images/black.png" type="Texture" id=6]
+[ext_resource path="res://scenes/levels/SimpleLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/gui/save_button.gd" type="Script" id=3]
+[ext_resource path="res://scripts/gui/load_button.gd" type="Script" id=4]
+[ext_resource path="res://scripts/gui/pause_button.gd" type="Script" id=5]
+[ext_resource path="res://images/player/black.png" type="Texture" id=6]
 
-[node name="Universe" type="Node" index="0"]
+[node name="Universe" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="Level" type="Node" parent="." index="0"]
+[node name="Level" parent="." index="0" instance=ExtResource( 2 )]
 
-pause_mode = 1
-_sections_unfolded = [ "Pause" ]
-
-[node name="LevelLayout" type="TileMap" parent="." index="1"]
-
-position = Vector2( -162.061, 0 )
-mode = 0
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 32, 32 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( -327683, 0, 0, -327682, 0, 0, -327681, 0, 0, -393216, 0, 0, -262153, 0, 0, -262152, 0, 0, -262151, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, -262142, 1, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -65541, 0, 0, -131069, 0, 0, -5, 0, 0, -65533, 0, 0, 65531, 0, 0, 3, 0, 0, 131067, 0, 0, 65539, 0, 0, 196603, 0, 0, 131075, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0 )
-_sections_unfolded = [ "Cell", "Collision", "Pause", "Transform" ]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+[node name="PauseMenu" type="CanvasLayer" parent="." index="1"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -49,7 +24,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -66,9 +41,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Focus", "Hint", "Rect", "Size Flags" ]
+_sections_unfolded = [ "Anchor", "Focus", "Hint", "Rect", "Size Flags" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -86,7 +61,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Focus", "Margin" ]
 
-[node name="SaveButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" index="0"]
+[node name="SaveButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -111,7 +86,7 @@ align = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Focus" ]
 
-[node name="LoadButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" index="1"]
+[node name="LoadButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -136,7 +111,7 @@ align = 1
 script = ExtResource( 4 )
 _sections_unfolded = [ "Focus", "Visibility" ]
 
-[node name="PauseButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer" index="2"]
+[node name="PauseButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -161,7 +136,7 @@ align = 1
 script = ExtResource( 5 )
 _sections_unfolded = [ "Focus" ]
 
-[node name="Container" type="Container" parent="CanvasLayer/MarginContainer/VBoxContainer" index="3"]
+[node name="Container" type="Container" parent="PauseMenu/MarginContainer/VBoxContainer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -177,7 +152,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="fade_screen" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer/Container" index="0"]
+[node name="fade_screen" type="TextureRect" parent="PauseMenu/MarginContainer/VBoxContainer/Container" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -199,10 +174,10 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Focus", "Hint", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/SaveButton" to="CanvasLayer/MarginContainer/VBoxContainer/SaveButton" method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/SaveButton" to="PauseMenu/MarginContainer/VBoxContainer/SaveButton" method="_on_SaveButton_pressed"]
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/LoadButton" to="CanvasLayer/MarginContainer/VBoxContainer/LoadButton" method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/LoadButton" to="PauseMenu/MarginContainer/VBoxContainer/LoadButton" method="_on_LoadButton_pressed"]
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/PauseButton" to="CanvasLayer/MarginContainer/VBoxContainer/PauseButton" method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/PauseButton" to="PauseMenu/MarginContainer/VBoxContainer/PauseButton" method="_on_PauseButton_pressed"]
 
 

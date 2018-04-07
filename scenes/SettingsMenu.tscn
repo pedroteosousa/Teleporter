@@ -1,9 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/Buttons.gd" type="Script" id=1]
+[ext_resource path="res://scripts/gui/options_section_buttons.gd" type="Script" id=1]
 [ext_resource path="res://images/settingsmenu/audio.png" type="Texture" id=2]
 [ext_resource path="res://images/settingsmenu/windowsize.png" type="Texture" id=3]
 [ext_resource path="res://images/settingsmenu/back.png" type="Texture" id=4]
+
+
+
+
 
 [node name="MarginContainer" type="MarginContainer" index="0"]
 

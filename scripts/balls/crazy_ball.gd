@@ -1,4 +1,4 @@
-extends "res://scripts/simple_ball.gd"
+extends "res://scripts/balls/simple_ball.gd"
 
 func collided():
 	queue_free()

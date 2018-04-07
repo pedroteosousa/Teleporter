@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cinza.png-cace960afbd4df8ac9e08e614d6859bf.stex"
+path="res://.import/black.png-747cc0c216ae33efe8a6f50dd6e7ed30.stex"
 
 [deps]
 
-source_file="res://images/cinza.png"
-source_md5="fd68ac19462e3ceb6f599b8e0b665223"
+source_file="res://images/player/black.png"
+source_md5="de27ea7a32d83344b854b9749395d0f4"
 
-dest_files=[ "res://.import/cinza.png-cace960afbd4df8ac9e08e614d6859bf.stex" ]
-dest_md5="756e2c645e241e53e2531a58b05ea9f9"
+dest_files=[ "res://.import/black.png-747cc0c216ae33efe8a6f50dd6e7ed30.stex" ]
+dest_md5="f96b796c611fecf62de2e4792a9cff09"
 
 [params]
 

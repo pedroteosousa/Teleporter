@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/levels/simple_level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=3]
+
+[node name="Level" type="Node2D" index="0"]
+
+pause_mode = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+level_name = "Test Level"
+
+[node name="walls" parent="." index="0" instance=ExtResource( 2 )]
+
+tile_data = PoolIntArray( -851955, 0, 0, -851953, 0, 0, -786419, 0, 0, -786417, 0, 0, -720883, 0, 0, -720881, 0, 0, -655347, 0, 0, -655345, 0, 0, -589811, 0, 0, -589809, 0, 0, -524275, 0, 0, -524273, 0, 0, -458739, 0, 0, -458737, 0, 0, -393203, 0, 0, -393201, 0, 0, -327669, 0, 0, -327668, 0, 0, -327667, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 0, 0, -262133, 0, 0, -262127, 0, 0, -262126, 0, 0, -262125, 0, 0, -262124, 0, 0, -196600, 0, 0, -196588, 0, 0, -131064, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131054, 0, 0, -131052, 0, 0, -65528, 0, 0, -65516, 0, 0, 8, 0, 0, 20, 0, 0, 65544, 0, 0, 65556, 0, 0, 131080, 0, 0, 131092, 0, 0, 196616, 0, 0, 196628, 0, 0, 262152, 0, 0, 262164, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0 )
+
+[node name="player" parent="." index="1" instance=ExtResource( 3 )]
+
+tile_data = PoolIntArray( 14, 0, 0 )
+
+[node name="Exit" type="Area2D" parent="." index="2"]
+
+position = Vector2( 460, -450 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -44, -46, 52, -46, 52, 34, -44, 34 )
+
+[node name="Sprite" type="Sprite" parent="Exit" index="1"]
+
+

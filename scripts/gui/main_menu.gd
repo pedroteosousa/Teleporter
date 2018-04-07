@@ -1,11 +1,6 @@
 extends VBoxContainer
 
-func _gui_input(event):
-	print(event)
-
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	get_children()[0].grab_focus()
 	for i in get_children():
 		i.connect("pressed", self, "on_pressed", [i])

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-var balls = ["res://scenes/SimpleBall.tscn", "res://scenes/CrazyBall.tscn"]
+var basePath = "res://scenes/balls/"
+var balls = ["SimpleBall", "CrazyBall"]
 var current_ball = null
 
 var joystick_speed = 300
@@ -18,7 +19,7 @@ func delete_ball():
 		current_ball = null
 	
 func create_ball(index, dir):
-	current_ball = weakref(load(balls[index]).instance())
+	current_ball = weakref(load(basePath + balls[index] + ".tscn").instance())
 	current_ball.get_ref().set_position(get_position())
 	current_ball.get_ref().go(dir)
 	get_parent().add_child(current_ball.get_ref())
@@ -35,8 +36,7 @@ func _unhandled_input(event):
 	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and !event.is_echo():
 		delete_ball()
 		var direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX), Input.get_joy_axis(0, JOY_ANALOG_LY))
-		create_ball(0, direction*joystick_speed)
-		print(direction)
+		create_ball(1, direction*joystick_speed)
 
 func _physics_process(delta):
 	velocity += gravity * delta
