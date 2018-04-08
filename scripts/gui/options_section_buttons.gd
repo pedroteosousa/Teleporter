@@ -21,4 +21,4 @@ func on_pressed(button_name):
 	elif name == "Back":
 		print("Click on Back (saving settings)")
 		settings.save_settings()
-		get_tree().change_scene("res://scenes/MainMenu.tscn")
+		get_tree().change_scene("res://scenes/gui/MainMenu.tscn")

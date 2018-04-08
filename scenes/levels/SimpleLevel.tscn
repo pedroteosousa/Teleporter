@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/levels/simple_level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://fonts/RobotoMono/RobotoMono-Bold.res" type="DynamicFont" id=4]
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 pause_mode = 1
 script = ExtResource( 1 )
@@ -38,5 +39,34 @@ build_mode = 0
 polygon = PoolVector2Array( -44, -46, 52, -46, 52, 34, -44, 34 )
 
 [node name="Sprite" type="Sprite" parent="Exit" index="1"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Level Name" type="Label" parent="CanvasLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 208.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Hint", "Mouse", "Rect", "Size Flags", "Theme", "custom_fonts" ]
 
 

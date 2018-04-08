@@ -1,4 +1,4 @@
 extends Button
 
-func _on_PauseButton_pressed():
+func _on_continue_pressed():
 	get_tree().paused = !get_tree().paused
