@@ -5,6 +5,7 @@ var basePath = "res://scenes/"
 func _process(delta):
 	if get_tree().paused != get_node("HUD/PauseMenu").visible:
 		get_node("HUD/PauseMenu").visible = get_tree().paused
+		get_node("HUD/PauseMenu/Continue").grab_focus()
 
 func _input(event):
 	if event is InputEventJoypadMotion or event is InputEventJoypadButton:
