@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/balls/crazy_ball.gd" type="Script" id=1]
-[ext_resource path="res://images/balls/cos.png" type="Texture" id=2]
+[ext_resource path="res://scripts/balls/sticky_ball.gd" type="Script" id=1]
+[ext_resource path="res://images/balls/sticky.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 8.0
 
-[node name="Crazy Ball" type="KinematicBody2D" index="0"]
+[node name="Sticky Ball" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
@@ -16,10 +16,10 @@ collision_mask = 6
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
-ball_name = "Crazy Ball"
-speed = 100
+ball_name = "Sticky Ball"
+speed = 500
 bounce = 1
-gravity = 0.0
+gravity = 100.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

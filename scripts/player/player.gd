@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var basePath = "res://scenes/balls/"
-var balls = ["SimpleBall", "CrazyBall"]
+var balls = ["SimpleBall", "CrazyBall", "StickyBall"]
 var current_ball = null
 var current_ball_index = 0
 
@@ -58,6 +58,7 @@ func _unhandled_input(event):
 			should_follow = true
 		else:
 			should_follow = false
+			follow_ball()
 
 func follow_ball(pos = Vector2(0, 0), zoom = Vector2(1, 1), smoothing = false):
 	get_node("Camera2D").zoom = zoom
@@ -68,15 +69,14 @@ func _physics_process(delta):
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
-	if current_ball:
-		if should_follow:
-			var screen_size = get_viewport_rect().size
-			var dist = current_ball.get_ref().get_position() - get_position()
-			var zoom = max(1.0, max(2*abs(dist.x / screen_size.x), 2*abs(dist.y / screen_size.y)))
-			follow_ball(dist/2.0, Vector2(zoom, zoom), true)
-		else:
-			should_follow = false
-			follow_ball()
+	if should_follow and current_ball and current_ball.get_ref():
+		var screen_size = get_viewport_rect().size
+		var dist = current_ball.get_ref().get_position() - get_position()
+		var zoom = max(1.0, max(2*abs(dist.x / screen_size.x), 2*abs(dist.y / screen_size.y)))
+		follow_ball(dist/2.0, Vector2(zoom, zoom), true)
+	elif should_follow:
+		should_follow = false
+		follow_ball()
 
 func _ready():
 	update_current_ball()

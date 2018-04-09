@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pink.png-24ad0d8cec180d44648e2948332857a6.stex"
+path="res://.import/sticky.png-c1ae20ef34a94ff441a7b5e8a08f2baa.stex"
 
 [deps]
 
-source_file="res://images/balls/pink.png"
-source_md5="1f3dc90c3eb94cdb02c5d9fc731bce35"
+source_file="res://images/balls/sticky.png"
+source_md5="4e747ca6b92b02d77a4946d6a3807fc3"
 
-dest_files=[ "res://.import/pink.png-24ad0d8cec180d44648e2948332857a6.stex" ]
-dest_md5="347b95220828b693d15014f3803f532e"
+dest_files=[ "res://.import/sticky.png-c1ae20ef34a94ff441a7b5e8a08f2baa.stex" ]
+dest_md5="6cf364405d6934cf4945b3457e0a891b"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
