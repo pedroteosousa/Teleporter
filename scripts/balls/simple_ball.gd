@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export (String) var ball_name = "Test Ball"
+export (String) var destroy_time = 5.0
 export (int) var speed = 500
 export (float) var bounce = 1
 export (float) var gravity = 100
@@ -22,9 +23,13 @@ func get_movement_pattern():
 
 func collided():
 	pass
+	
+func ball_timeout():
+	pass
 
 func _physics_process(delta):
 	elapsed_time += delta
+	ball_timeout()
 	velocity.y += gravity * delta
 	var collision = move_and_collide(get_movement_pattern()*delta)
 	if collision:

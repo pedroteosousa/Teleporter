@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var basePath = "res://scenes/balls/"
-var balls = ["SimpleBall", "CrazyBall", "StickyBall"]
+var balls = ["SimpleBall", "CrazyBall", "StickyBall", "DreddBall"]
 var current_ball = null
 var current_ball_index = 0
 

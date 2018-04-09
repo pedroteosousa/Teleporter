@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/balls/crazy_ball.gd" type="Script" id=1]
+[ext_resource path="res://scripts/balls/dredd_ball.gd" type="Script" id=1]
 [ext_resource path="res://images/balls/cos.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 8.0
 
-[node name="Crazy Ball" type="KinematicBody2D"]
+[node name="DreddBall" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -16,17 +16,15 @@ collision_mask = 6
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
-ball_name = "Crazy Ball"
+ball_name = "Dredd Ball"
 destroy_time = 5.0
-speed = 100
+speed = 500
 bounce = 1
 gravity = 0.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -3.9069e-07, 8.9407e-07 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

@@ -17,6 +17,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 ball_name = "Simple Ball"
+destroy_time = 5.0
 speed = 500
 bounce = 1.0
 gravity = 100
