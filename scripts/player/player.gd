@@ -24,7 +24,7 @@ func delete_ball():
 func create_ball(index, dir):
 	current_ball = weakref(load(basePath + balls[index] + ".tscn").instance())
 	current_ball.get_ref().set_position(get_position())
-	current_ball.get_ref().go(dir)
+	current_ball.get_ref().go(dir, velocity)
 	get_parent().add_child(current_ball.get_ref())
 
 func update_current_ball():

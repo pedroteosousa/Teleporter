@@ -14,8 +14,8 @@ func limit_velocity(dir):
 		dir = dir.normalized()*speed
 	return dir
 
-func go(dir):
-	velocity = limit_velocity(dir)
+func go(dir, vel):
+	velocity = limit_velocity(dir) + vel
 
 func get_movement_pattern():
 	return velocity
