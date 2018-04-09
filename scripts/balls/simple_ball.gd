@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (String) var ball_name = "Test Ball"
-export (String) var destroy_time = 5.0
+export (float) var destroy_time = -1.0
 export (int) var speed = 500
 export (float) var bounce = 1
 export (float) var gravity = 100

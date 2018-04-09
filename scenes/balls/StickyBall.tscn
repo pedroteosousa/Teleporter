@@ -17,9 +17,9 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
 ball_name = "Sticky Ball"
-destroy_time = 5.0
+destroy_time = -1.0
 speed = 500
-bounce = 1
+bounce = 1.0
 gravity = 100.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
