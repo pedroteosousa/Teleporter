@@ -1,6 +1,6 @@
 extends "res://scripts/balls/simple_ball.gd"
 
-func collided():
+func collided(collision):
 	queue_free()
 
 func get_amplitude():

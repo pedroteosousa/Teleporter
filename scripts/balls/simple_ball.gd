@@ -21,7 +21,7 @@ func go(dir, vel):
 func get_movement_pattern():
 	return velocity
 
-func collided():
+func collided(collision):
 	pass
 	
 func ball_timeout():
@@ -33,7 +33,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	var collision = move_and_collide(get_movement_pattern()*delta)
 	if collision:
-		collided()
+		collided(collision)
 		velocity = velocity.bounce(collision.normal)*bounce
 
 func _ready():
