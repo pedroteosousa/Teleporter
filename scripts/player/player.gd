@@ -1,17 +1,18 @@
 extends KinematicBody2D
 
-var basePath = "res://scenes/balls/"
-var balls = ["SimpleBall", "CrazyBall", "StickyBall", "DreddBall"]
+var scenePath = "res://scenes/balls/"
 var current_ball = null
-var current_ball_index = 0
 
+# joystick multiplier for speed
 var joystick_speed = 300
 
 var gravity = Vector2(0, 100)
 var velocity = Vector2(0, 0)
 
+# should camera follow the ball
 var should_follow = false
 
+# erase ball from scene
 func delete_ball():
 	if current_ball:
 		if current_ball.get_ref():
@@ -20,39 +21,35 @@ func delete_ball():
 			ball.collision_mask = 0
 			ball.queue_free()
 		current_ball = null
-	
-func create_ball(index, dir):
-	current_ball = weakref(load(basePath + balls[index] + ".tscn").instance())
+
+# create a new ball checking which ball should be release from parent (level)
+func create_ball(dir):
+	var ball_name = get_parent().get_current_ball()
+	if ball_name == null:
+		return
+	delete_ball()
+	current_ball = weakref(load(scenePath + ball_name + ".tscn").instance())
 	current_ball.get_ref().set_position(get_position())
 	current_ball.get_ref().go(dir, velocity)
 	get_parent().add_child(current_ball.get_ref())
 
-func update_current_ball():
-	var ball = load(basePath + balls[current_ball_index] + ".tscn").instance()
-	var ball_sprite = ball.get_node('Sprite')
-	get_node("HUD/VBoxContainer/Sprite").texture = ball_sprite.texture
-	get_node("HUD/VBoxContainer/Sprite").scale = ball_sprite.scale
-	get_node("HUD/VBoxContainer/Current Ball").text = ball.ball_name
-
 func _unhandled_input(event):
-	if InputMap.event_is_action(event, "change_current_ball_down") and event.is_pressed():
-		current_ball_index = (current_ball_index-1+len(balls))%len(balls)
-		update_current_ball()
-	if InputMap.event_is_action(event, "change_current_ball_up") and event.is_pressed():
-		current_ball_index = (current_ball_index+1)%len(balls)
-		update_current_ball()
+	# release ball with mouse
 	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
-		delete_ball()
-		create_ball(current_ball_index, get_local_mouse_position())
+		create_ball(get_local_mouse_position())
+	# release ball with joystick
+	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and !event.is_echo():
+		var direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX), Input.get_joy_axis(0, JOY_ANALOG_LY))
+		create_ball(direction*joystick_speed)
+	
+	# teleport to ball location
 	if InputMap.event_is_action(event, "teleport") and event.is_pressed() and current_ball:
 		if current_ball.get_ref():
 			set_position(current_ball.get_ref().get_position())
 		velocity = Vector2(0, 0)
 		delete_ball()
-	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and !event.is_echo():
-		delete_ball()
-		var direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX), Input.get_joy_axis(0, JOY_ANALOG_LY))
-		create_ball(current_ball_index, direction*joystick_speed)
+	
+	# make camera follow the current ball
 	if InputMap.event_is_action(event, "follow_ball"):
 		if event.is_pressed() and current_ball:
 			should_follow = true
@@ -60,15 +57,18 @@ func _unhandled_input(event):
 			should_follow = false
 			follow_ball()
 
+# update camera location
 func follow_ball(pos = Vector2(0, 0), zoom = Vector2(1, 1), smoothing = false):
 	get_node("Camera2D").zoom = zoom
 	get_node("Camera2D").position = pos
 	get_node("Camera2D").smoothing_enabled = smoothing
 
 func _physics_process(delta):
+	# gravity
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
+	# update camera behaviour
 	if should_follow and current_ball and current_ball.get_ref():
 		var screen_size = get_viewport_rect().size
 		var dist = current_ball.get_ref().get_position() - get_position()
@@ -79,7 +79,6 @@ func _physics_process(delta):
 		follow_ball()
 
 func _ready():
-	update_current_ball()
 	set_physics_process(true)
 	set_process_input(true)
 

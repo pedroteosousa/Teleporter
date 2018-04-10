@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (String) var ball_name = "Test Ball"
-export (float) var destroy_time = -1.0
+export (float) var timeout = -1.0
 export (int) var speed = 500
 export (float) var bounce = 1
 export (float) var gravity = 100
@@ -10,26 +10,44 @@ var velocity = Vector2(0, 0)
 var gravity_velocity = Vector2(0, 0)
 var elapsed_time = 0.0
 
+# cap the ball initial velocity
 func limit_velocity(dir):
 	if dir.length() > speed:
 		dir = dir.normalized()*speed
 	return dir
 
+# defines the initial velocity of the ball
 func go(dir, vel):
 	velocity = limit_velocity(dir) + vel
 
+# change velocity in a defined pattern (is called every physics_process)
 func get_movement_pattern():
 	return velocity
 
+# called when ball collides
 func collided(collision):
 	pass
-	
-func ball_timeout():
-	pass
+
+# check ball timer
+# always return the percentage of time elapsed or -1 if there is no timeout
+func check_timeout():
+	if timeout < 0:
+		return -1
+	if elapsed_time >= timeout:
+		timeout()
+	return elapsed_time / timeout
+
+# called when timeout is over
+func timeout():
+	queue_free()
 
 func _physics_process(delta):
+	# updating elapsed time
 	elapsed_time += delta
-	ball_timeout()
+	
+	check_timeout()
+	
+	# updating location
 	velocity.y += gravity * delta
 	var collision = move_and_collide(get_movement_pattern()*delta)
 	if collision:

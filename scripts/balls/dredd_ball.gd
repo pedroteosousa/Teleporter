@@ -1,13 +1,6 @@
 extends "res://scripts/balls/simple_ball.gd"
 
-func collided(collision):
-	queue_free()
-	
-func ball_timeout():
-	print(elapsed_time)
-	if (elapsed_time >= destroy_time):
-		queue_free()
-		
+# take closest axis direction and release ball in that direction
 func go(dir, vel):
 	velocity = limit_velocity(dir) + vel
 	if abs(dir.x) > abs(dir.y):
@@ -15,11 +8,17 @@ func go(dir, vel):
 	else:
 		dir.x = 0
 	change_direction(dir.normalized())
-	
+
+# destroy on collision
+func collided(collision):
+	queue_free()
+
+# change ball facing direction
 func change_direction(dir):
 	self.rotation = dir.angle()
 	velocity = dir*velocity.length()
 
+# get direction from input
 func _unhandled_input(event):
 	if InputMap.event_is_action(event, "ui_down") and event.is_pressed():
 		change_direction(Vector2(0,1))
