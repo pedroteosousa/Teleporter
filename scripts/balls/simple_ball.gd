@@ -20,6 +20,10 @@ func limit_velocity(dir):
 func go(dir, vel):
 	velocity = limit_velocity(dir) + vel
 
+# setting up which process should run
+func init():
+	set_physics_process(true)
+
 # change velocity in a defined pattern (is called every physics_process)
 func get_movement_pattern():
 	return velocity
@@ -41,6 +45,13 @@ func check_timeout():
 func timeout():
 	queue_free()
 
+# function determining movement
+func movement(delta):
+	var collision = move_and_collide(get_movement_pattern()*delta)
+	if collision:
+		collided(collision)
+		velocity = velocity.bounce(collision.normal)*bounce
+
 func _physics_process(delta):
 	# updating elapsed time
 	elapsed_time += delta
@@ -49,10 +60,7 @@ func _physics_process(delta):
 	
 	# updating location
 	velocity.y += gravity * delta
-	var collision = move_and_collide(get_movement_pattern()*delta)
-	if collision:
-		collided(collision)
-		velocity = velocity.bounce(collision.normal)*bounce
+	movement(delta)
 
 func _ready():
-	set_physics_process(true)
+	init()
