@@ -1,30 +1,30 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/balls/simple_ball.gd" type="Script" id=1]
-[ext_resource path="res://images/balls/orange.png" type="Texture" id=2]
+[ext_resource path="res://scripts/balls/pool_ball.gd" type="Script" id=1]
+[ext_resource path="res://images/balls/cos.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 8.0
 
-[node name="Simple Ball" type="KinematicBody2D"]
+[node name="PoolBall" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
 collision_mask = 6
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
-ball_name = "Simple Ball"
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
+ball_name = "Pool Ball"
 timeout = -1.0
 speed = 500
-bounce = 1.0
-gravity = 100
+bounce = 0.6
+gravity = 0.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -0.0355835, -0.0355835 )
+position = Vector2( -3.9069e-07, 8.9407e-07 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

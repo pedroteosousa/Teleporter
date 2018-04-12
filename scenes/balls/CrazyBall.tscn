@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 8.0
 
-[node name="Crazy Ball" type="KinematicBody2D"]
+[node name="Balloon Ball" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -17,7 +17,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 ball_name = "Crazy Ball"
-destroy_time = -1.0
+timeout = -1.0
 speed = 100
 bounce = 1
 gravity = 0.0
