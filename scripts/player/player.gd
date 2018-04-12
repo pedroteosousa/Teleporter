@@ -75,6 +75,9 @@ func follow_ball(pos = Vector2(0, 0), zoom = Vector2(1, 1), smoothing = false):
 	get_node("Camera2D").zoom = zoom
 	get_node("Camera2D").position = pos
 	get_node("Camera2D").smoothing_enabled = smoothing
+	
+func enemy_collision():
+	queue_free()
 
 func _physics_process(delta):
 	# gravity

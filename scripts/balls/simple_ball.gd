@@ -55,6 +55,9 @@ func movement(delta):
 	if collision:
 		collided(collision)
 		velocity = velocity.bounce(collision.normal)*bounce
+		
+func enemy_collision():
+	queue_free()
 
 func _physics_process(delta):
 	# updating elapsed time

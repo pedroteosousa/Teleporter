@@ -90,6 +90,7 @@ func load_map():
 			var name = tileset.tile_get_name(tile)
 			var path = scenePath + map.get_name() + "/" + name + ".tscn"
 			var pos = cell * map.cell_size.x + Vector2(1,1)*(map.cell_size.x/2)
+			print(pos)
 			var object = load(path).instance()
 			object.set_position(pos)
 			add_child(object)
