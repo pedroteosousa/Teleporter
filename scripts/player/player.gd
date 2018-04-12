@@ -33,6 +33,18 @@ func create_ball(dir):
 	current_ball.get_ref().go(dir, velocity)
 	get_parent().add_child(current_ball.get_ref())
 
+# teleport and warn level
+func teleport():
+	if current_ball and current_ball.get_ref():
+		var ball = current_ball.get_ref()
+		var ball_name = ball.get_path().get_name(ball.get_path().get_name_count()-1)
+		set_position(ball.get_position())
+		velocity = Vector2(0, 0)
+		delete_ball()
+		
+		# warning level of teleportation
+		get_parent().used(ball_name)
+
 func _unhandled_input(event):
 	# release ball with mouse
 	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
@@ -43,11 +55,8 @@ func _unhandled_input(event):
 		create_ball(direction*joystick_speed)
 	
 	# teleport to ball location
-	if InputMap.event_is_action(event, "teleport") and event.is_pressed() and current_ball:
-		if current_ball.get_ref():
-			set_position(current_ball.get_ref().get_position())
-		velocity = Vector2(0, 0)
-		delete_ball()
+	if InputMap.event_is_action(event, "teleport") and event.is_pressed():
+		teleport()
 	
 	# make camera follow the current ball
 	if InputMap.event_is_action(event, "follow_ball"):

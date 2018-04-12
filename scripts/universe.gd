@@ -2,6 +2,10 @@ extends Node
 
 var basePath = "res://scenes/"
 
+func init(level):
+	level = load(basePath + "levels/" + level + ".tscn").instance()
+	add_child(level)
+
 func _process(delta):
 	# handle pause menu visibility
 	if get_tree().paused != get_node("HUD/PauseMenu").visible:
@@ -20,5 +24,4 @@ func _input(event):
 		get_tree().paused = !get_tree().paused
 
 func _ready():
-	set_process_input(true)
-	set_process(true)
+	init("SimpleLevel")

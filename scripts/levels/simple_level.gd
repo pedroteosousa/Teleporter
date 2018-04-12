@@ -18,6 +18,12 @@ var label
 # the player character
 var player
 
+# called when player teleports
+func used(ball_name):
+	for ball in balls:
+		if ball[0] == ball_name:
+			ball[1] -= 1
+
 # drawing color on top of the exit
 func _draw():
 	var exit = get_node("Exit")
@@ -56,7 +62,6 @@ func _process(delta):
 func get_current_ball():
 	var ball_info = balls[current_ball]
 	if ball_info[1] < 0 or ball_info[1] >= 1:
-		ball_info[1] -= 1
 		return ball_info[0]
 	else:
 		print("ball limit exceeded")
@@ -66,8 +71,8 @@ func get_current_ball():
 func update_current_ball():
 	var ball = load(scenePath + "balls/" + balls[current_ball][0] + ".tscn").instance()
 	var ball_sprite = ball.get_node('Sprite')
-	get_parent().get_node("HUD/Ball Display/Image").texture = ball_sprite.texture
-	get_parent().get_node("HUD/Ball Display/Label").text = ball.ball_name
+	get_node("HUD/Ball Display/Image").texture = ball_sprite.texture
+	get_node("HUD/Ball Display/Label").text = ball.ball_name
 
 # this function is called when user completes the level
 func completed():
@@ -97,7 +102,7 @@ func _ready():
 	update_current_ball()
 	
 	# positioning lavel on correct position
-	label = get_node("CanvasLayer/Level Name")
+	label = get_node("HUD/Level Name")
 	label.rect_position.y = get_viewport_rect().size.y/4
 	label.rect_size.x = get_viewport_rect().size.x
 	label.text = level_name
