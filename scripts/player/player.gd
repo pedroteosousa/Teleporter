@@ -38,11 +38,11 @@ func teleport():
 	if current_ball and current_ball.get_ref():
 		var ball = current_ball.get_ref()
 		var ball_name = ball.get_path().get_name(ball.get_path().get_name_count()-1)
-		set_position(ball.get_position())
-		velocity = Vector2(0, 0)
+		ball.act(self)
 		delete_ball()
 		
 		# warning level of teleportation
+		print(ball_name)
 		get_parent().used(ball_name)
 
 func _unhandled_input(event):
@@ -57,6 +57,10 @@ func _unhandled_input(event):
 	# teleport to ball location
 	if InputMap.event_is_action(event, "teleport") and event.is_pressed():
 		teleport()
+	
+	# jump
+	if InputMap.event_is_action(event, "jump") and is_on_floor():
+		velocity.y -= 150
 	
 	# make camera follow the current ball
 	if InputMap.event_is_action(event, "follow_ball"):

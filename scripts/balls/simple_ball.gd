@@ -10,6 +10,12 @@ var velocity = Vector2(0, 0)
 var gravity_velocity = Vector2(0, 0)
 var elapsed_time = 0.0
 
+# ball action
+func act(player):
+	player.set_position(get_position())
+	
+	pass
+
 # cap the ball initial velocity
 func limit_velocity(dir):
 	if dir.length() > speed:

@@ -20,7 +20,7 @@ tile_data = PoolIntArray( -851956, 0, 0, -851952, 0, 0, -786420, 0, 0, -786416, 
 
 [node name="player" parent="." index="1" instance=ExtResource( 3 )]
 
-tile_data = PoolIntArray( 262158, 0, 0 )
+tile_data = PoolIntArray( 65550, 0, 0 )
 
 [node name="Exit" type="Area2D" parent="." index="2"]
 
