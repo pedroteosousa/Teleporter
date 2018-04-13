@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://images/enemies/fire.png" type="Texture" id=1]
 [ext_resource path="res://images/enemies/simple.png" type="Texture" id=2]
+[ext_resource path="res://images/enemies/thorn.png" type="Texture" id=3]
 
 [node name="Node" type="Node"]
 
@@ -17,6 +18,12 @@ _sections_unfolded = [ "Animation", "Transform" ]
 
 position = Vector2( 32, 16 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Thorn" type="Sprite" parent="." index="2"]
+
+position = Vector2( 56, 8 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 
