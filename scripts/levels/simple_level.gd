@@ -78,6 +78,7 @@ func update_current_ball():
 func completed():
 	print("level finished in " + str(elapsed_time) + " seconds")
 	queue_free()
+	get_tree().change_scene("res://scenes/gui/MainMenu.tscn")
 
 # reading all tilesmaps and translating dummy cells
 func load_map():
