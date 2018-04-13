@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Permeable Wall" type="StaticBody2D"]
+[node name="Permeable Wall" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 0
@@ -21,10 +21,11 @@ _sections_unfolded = [ "Collision" ]
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 

@@ -7,10 +7,10 @@ path="res://.import/player_permeable.png-d5dfd394954af1861525e552614c6c83.stex"
 [deps]
 
 source_file="res://images/walls/player_permeable.png"
-source_md5="621a699c1cfd0fdb8b56760dbaffdda3"
+source_md5="082c2674f08100356cc3879ca6dc6b58"
 
 dest_files=[ "res://.import/player_permeable.png-d5dfd394954af1861525e552614c6c83.stex" ]
-dest_md5="b70c3342536bebca8191b669cd10916d"
+dest_md5="b9725c7d32821ac554d361deb401fc3e"
 
 [params]
 

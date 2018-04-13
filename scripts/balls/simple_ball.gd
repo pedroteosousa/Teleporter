@@ -10,9 +10,14 @@ var velocity = Vector2(0, 0)
 var gravity_velocity = Vector2(0, 0)
 var elapsed_time = 0.0
 
+# store if ball is considered used
+var used = false
+
 # ball action
 func act(player):
 	player.set_position(get_position())
+	used = true
+	queue_free()
 
 # cap the ball initial velocity
 func limit_velocity(dir):
@@ -54,6 +59,8 @@ func movement(delta):
 	var collision = move_and_collide(get_movement_pattern()*delta)
 	if collision:
 		collided(collision)
+		if "velocity" in collision.collider and "bounce" in collision.collider:
+			print(collision.collider)
 		velocity = velocity.bounce(collision.normal)*bounce
 		
 func enemy_collision():

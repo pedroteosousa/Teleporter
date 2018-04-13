@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/enemies/simple_enemy.gd" type="Script" id=1]
-[ext_resource path="res://images/balls/orange.png" type="Texture" id=2]
+[ext_resource path="res://images/enemies/simple.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Simple Enemy" type="Area2D"]
+[node name="Simple Enemy" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -24,13 +24,12 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-position = Vector2( -4.76837e-07, 4.76837e-07 )
-scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 

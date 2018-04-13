@@ -6,9 +6,16 @@ export (float) var label_duration = 3
 
 # array of usable balls in this level ([ball_name, quantity], if quantity = -1, you have infinite balls of that type)
 var balls = [["DreddBall", -1], ["SimpleBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
+# current selected ball
 var current_ball = 0
 
+var ball_queue = []
+var Ball = load("res://scripts/levels/ball_info.gd")
+
 var scenePath = "res://scenes/"
+
+# joystick multiplier for speed
+var joystick_speed = 300
 
 # elapsed_time since the beginning of the level
 var elapsed_time = 0
@@ -17,6 +24,32 @@ var elapsed_time = 0
 var label
 # the player character
 var player
+
+func clean_queue():
+	var i = 0
+	while i < len(ball_queue):
+		if !ball_queue[i].obj or !ball_queue[i].obj.get_ref():
+			if ball_queue[i].used:
+				used(ball_queue[i].ball_name)
+			ball_queue.remove(i)
+		else:
+			i += 1
+
+func use_ball():
+	clean_queue()
+	print(ball_queue)
+	if len(ball_queue):
+		ball_queue[0].obj.get_ref().act(player)
+
+func create_ball(dir, vel):
+	var ball_name = get_current_ball()
+	if ball_name == null:
+		return
+	var new_ball = weakref(load(scenePath + "balls/" + ball_name + ".tscn").instance())
+	new_ball.get_ref().set_position(player.get_position())
+	new_ball.get_ref().go(dir, vel)
+	ball_queue.append(Ball.new(ball_name, new_ball))
+	add_child(new_ball.get_ref())
 
 # called when player teleports
 func used(ball_name):
@@ -40,8 +73,22 @@ func _unhandled_input(event):
 	if InputMap.event_is_action(event, "change_current_ball_up") and event.is_pressed():
 		current_ball = (current_ball+1)%len(balls)
 		update_current_ball()
+	
+	# release ball with mouse
+	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
+		create_ball(player.get_local_mouse_position(), player.velocity)
+	# release ball with joystick
+	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and !event.is_echo():
+		var direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX), Input.get_joy_axis(0, JOY_ANALOG_LY))
+		create_ball(direction*joystick_speed, player.velocity)
+	
+	# use ball
+	if InputMap.event_is_action(event, "teleport") and event.is_pressed():
+		use_ball()
 
 func _process(delta):
+	clean_queue()
+	
 	# calculating elapsed time to be used in various situations
 	elapsed_time += delta
 	
@@ -80,6 +127,10 @@ func completed():
 	queue_free()
 	get_tree().change_scene("res://scenes/gui/MainMenu.tscn")
 
+func get_size_from_sprite(object):
+	var sprite = object.get_node("Sprite")
+	return sprite.get_texture().get_size() / Vector2(sprite.hframes, sprite.vframes)
+
 # reading all tilesmaps and translating dummy cells
 func load_map():
 	for map in get_children():
@@ -90,9 +141,8 @@ func load_map():
 			var tile = map.get_cell(cell.x, cell.y)
 			var name = tileset.tile_get_name(tile)
 			var path = scenePath + map.get_name() + "/" + name + ".tscn"
-			var pos = cell * map.cell_size.x + Vector2(1,1)*(map.cell_size.x/2)
-			print(pos)
 			var object = load(path).instance()
+			var pos = cell * map.cell_size.x + get_size_from_sprite(object)/2
 			object.set_position(pos)
 			add_child(object)
 			if map.get_name() == 'player':

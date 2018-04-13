@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/permeable.png-65d32f64b194619b59c10248990d2e10.stex"
+path="res://.import/fire.png-da2a67c1a65445c4196439bc46755f96.stex"
 
 [deps]
 
-source_file="res://images/walls/permeable.png"
-source_md5="1abe674fb8ec2262e5810ea9b74ec08e"
+source_file="res://images/enemies/fire.png"
+source_md5="26694b1e395d84849804522bf3ada18a"
 
-dest_files=[ "res://.import/permeable.png-65d32f64b194619b59c10248990d2e10.stex" ]
-dest_md5="c2a7a6a478047c657cc96d19feccb523"
+dest_files=[ "res://.import/fire.png-da2a67c1a65445c4196439bc46755f96.stex" ]
+dest_md5="0e99190d5ed313aa304af6c66266249d"
 
 [params]
 

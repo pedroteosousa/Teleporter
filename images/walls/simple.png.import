@@ -7,10 +7,10 @@ path="res://.import/simple.png-090f109c9ac1ac9e861ba4a45e0cde67.stex"
 [deps]
 
 source_file="res://images/walls/simple.png"
-source_md5="e58768340f850f8577fcaed398fffd8f"
+source_md5="eb2e14f1558b9caaa053ca5ddea9e110"
 
 dest_files=[ "res://.import/simple.png-090f109c9ac1ac9e861ba4a45e0cde67.stex" ]
-dest_md5="df0eb9219527d1e5292c9fda89291c0c"
+dest_md5="83346a7548a94c3b2c02f01bee0e55b3"
 
 [params]
 

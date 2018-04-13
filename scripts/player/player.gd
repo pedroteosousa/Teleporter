@@ -1,63 +1,18 @@
 extends KinematicBody2D
 
-var scenePath = "res://scenes/balls/"
-var current_ball = null
-
-# joystick multiplier for speed
-var joystick_speed = 300
-
 var gravity = Vector2(0, 100)
 var velocity = Vector2(0, 0)
+
+var current_ball = null
 
 # should camera follow the ball
 var should_follow = false
 
-# erase ball from scene
-func delete_ball():
-	if current_ball:
-		if current_ball.get_ref():
-			var ball = current_ball.get_ref()
-			ball.collision_layer = 0
-			ball.collision_mask = 0
-			ball.queue_free()
-		current_ball = null
-
-# create a new ball checking which ball should be release from parent (level)
-func create_ball(dir):
-	var ball_name = get_parent().get_current_ball()
-	if ball_name == null:
-		return
-	delete_ball()
-	current_ball = weakref(load(scenePath + ball_name + ".tscn").instance())
-	current_ball.get_ref().set_position(get_position())
-	current_ball.get_ref().go(dir, velocity)
-	get_parent().add_child(current_ball.get_ref())
-
-# teleport and warn level
-func teleport():
-	if current_ball and current_ball.get_ref():
-		var ball = current_ball.get_ref()
-		var ball_name = ball.get_path().get_name(ball.get_path().get_name_count()-1)
-		ball.act(self)
-		delete_ball()
-		
-		# warning level of teleportation
-		print(ball_name)
-		get_parent().used(ball_name)
+func get_current_ball():
+	if len(get_parent().ball_queue):
+		current_ball = get_parent().ball_queue[0].obj
 
 func _unhandled_input(event):
-	# release ball with mouse
-	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
-		create_ball(get_local_mouse_position())
-	# release ball with joystick
-	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and !event.is_echo():
-		var direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX), Input.get_joy_axis(0, JOY_ANALOG_LY))
-		create_ball(direction*joystick_speed)
-	
-	# teleport to ball location
-	if InputMap.event_is_action(event, "teleport") and event.is_pressed():
-		teleport()
-	
 	# jump
 	if InputMap.event_is_action(event, "jump") and is_on_floor():
 		velocity.y -= 150
@@ -80,6 +35,8 @@ func enemy_collision():
 	queue_free()
 
 func _physics_process(delta):
+	get_current_ball()
+	
 	# gravity
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
