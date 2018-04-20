@@ -1,0 +1,137 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/levels/level_test_1.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/RobotoMono/RobotoMono-Bold.res" type="DynamicFont" id=5]
+[ext_resource path="res://images/balls/orange.png" type="Texture" id=6]
+[ext_resource path="res://scenes/utility/Utility.tscn" type="PackedScene" id=7]
+
+[node name="Level" type="Node2D" index="0"]
+
+pause_mode = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+level_name = "Level Test 1"
+label_duration = 3
+
+[node name="walls" parent="." index="0" instance=ExtResource( 2 )]
+
+tile_data = PoolIntArray( 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0 )
+
+[node name="player" parent="." index="1" instance=ExtResource( 3 )]
+
+tile_data = PoolIntArray( 65550, 0, 0 )
+
+[node name="enemies" parent="." index="2" instance=ExtResource( 4 )]
+
+tile_data = PoolIntArray( -1834984, 1, 0, -65510, 0, 0, -65505, 0, 0, 25, 0, 0, 32, 0, 0, 262187, 0, 0, 327702, 2, 0, 327703, 2, 0, 327705, 0, 0, 327706, 0, 0, 327711, 0, 0, 327712, 0, 0, 327714, 2, 0, 327715, 2, 0, 327723, 0, 0, 393259, 0, 0, 458795, 0, 0, 524331, 0, 0, 589867, 0, 0, 655403, 0, 0, 720939, 0, 0 )
+
+[node name="Exit" type="Area2D" parent="." index="3"]
+
+position = Vector2( 460, -450 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -44, -46, 52, -46, 52, 34, -44, 34 )
+
+[node name="HUD" type="CanvasLayer" parent="." index="4"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Level Name" type="Label" parent="HUD" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 208.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Hint", "Mouse", "Rect", "Size Flags", "Theme", "custom_fonts" ]
+
+[node name="Ball Display" type="VBoxContainer" parent="HUD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="HUD/Ball Display" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 69.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Test Name"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Image" type="TextureRect" parent="HUD/Ball Display" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 69.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 6 )
+stretch_mode = 0
+
+[node name="Utility" type="Node" parent="." index="5"]
+
+[node name="Utility" parent="Utility" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 357.542, 31.1551 )
+
+

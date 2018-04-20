@@ -25,6 +25,9 @@ var label
 # the player character
 var player
 
+func utility():
+	pass
+
 func clean_queue():
 	var i = 0
 	while i < len(ball_queue):
@@ -152,7 +155,6 @@ func load_map():
 func _ready():
 	load_map()
 	update_current_ball()
-	
 	# positioning lavel on correct position
 	label = get_node("HUD/Level Name")
 	label.rect_position.y = get_viewport_rect().size.y/4
