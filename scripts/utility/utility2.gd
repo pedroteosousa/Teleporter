@@ -1,6 +1,6 @@
 extends Area2D
 
-export (String) var id = "0"
+export (String) var id = "1"
 
 func enter():
 	get_parent().get_parent().utility(id, true)
@@ -13,5 +13,3 @@ func _physics_process(delta):
 	if (!overlapping_bodies.size()): exit()
 	for i in overlapping_bodies:
 		enter()
-
-

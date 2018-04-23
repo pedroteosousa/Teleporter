@@ -5,7 +5,7 @@ export (String) var level_name = "Test Level"
 export (float) var label_duration = 3
 
 # array of usable balls in this level ([ball_name, quantity], if quantity = -1, you have infinite balls of that type)
-var balls = [["DreddBall", -1], ["SimpleBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
+var balls = [["SimpleBall", -1], ["DreddBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
 # current selected ball
 var current_ball = 0
 
