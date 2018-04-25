@@ -13,5 +13,3 @@ func _physics_process(delta):
 	if (!overlapping_bodies.size()): exit()
 	for i in overlapping_bodies:
 		enter()
-
-

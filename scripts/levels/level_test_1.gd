@@ -35,7 +35,6 @@ func utility(id, enter):
 				hidden_utility.show()
 				hidden_utility.id = "1"
 
-
 		if (id == "1"):
 			if (!is_alive_2):
 				for i in range (WALLS2_AMOUNT):

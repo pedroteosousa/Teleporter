@@ -24,4 +24,4 @@ func _input(event):
 		get_tree().paused = !get_tree().paused
 
 func _ready():
-	init("LevelTest1")
+	init("SimpleLevel")
