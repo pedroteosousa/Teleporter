@@ -1,24 +1,29 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/walls/permeable_wall.gd" type="Script" id=1]
-[ext_resource path="res://images/walls/permeable.png" type="Texture" id=2]
+[ext_resource path="res://scripts/enemies/walker.gd" type="Script" id=1]
+[ext_resource path="res://images/enemies/simple.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Permeable Wall" type="StaticBody2D"]
+[node name="Walker" type="Area2D"]
 
-input_pickable = false
-collision_layer = 0
-collision_mask = 13
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 15
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+angle = 45.0
+walk_size = 5
+speed = 100
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

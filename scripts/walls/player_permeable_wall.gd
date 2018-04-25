@@ -1,0 +1,1 @@
+extends "res://scripts/walls/simple_wall.gd"

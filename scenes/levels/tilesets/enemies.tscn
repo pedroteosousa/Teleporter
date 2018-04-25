@@ -26,9 +26,4 @@ position = Vector2( 8, 24 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Shooter" type="Sprite" parent="." index="3"]
-
-position = Vector2( 16, 48 )
-texture = ExtResource( 2 )
-
 
