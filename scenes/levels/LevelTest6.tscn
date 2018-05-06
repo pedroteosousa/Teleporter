@@ -12,7 +12,7 @@
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
-level_name = "Test Level"
+level_name = "Test Level 6"
 label_duration = 3
 
 [node name="walls" parent="." index="0" instance=ExtResource( 2 )]

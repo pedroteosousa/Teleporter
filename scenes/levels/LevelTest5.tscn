@@ -7,12 +7,12 @@
 [ext_resource path="res://fonts/RobotoMono/RobotoMono-Bold.res" type="DynamicFont" id=5]
 [ext_resource path="res://images/balls/orange.png" type="Texture" id=6]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
-level_name = "Test Level"
+level_name = "Test Level 5"
 label_duration = 3
 
 [node name="walls" parent="." index="0" instance=ExtResource( 2 )]
