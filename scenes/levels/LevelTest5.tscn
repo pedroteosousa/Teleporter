@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/levels/level_test_3.gd" type="Script" id=1]
+[ext_resource path="res://scripts/levels/level_test_5.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/RobotoMono/RobotoMono-Bold.res" type="DynamicFont" id=5]
 [ext_resource path="res://images/balls/orange.png" type="Texture" id=6]
-[ext_resource path="res://scenes/utility/Utility.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Node2D"]
 
@@ -18,17 +17,17 @@ label_duration = 3
 
 [node name="walls" parent="." index="0" instance=ExtResource( 2 )]
 
-tile_data = PoolIntArray( -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -524266, 0, 0, -524265, 0, 0, -524264, 0, 0, -524263, 0, 0, -524262, 0, 0, -524261, 0, 0, -524260, 0, 0, -458737, 0, 0, -458724, 0, 0, -393201, 0, 0, -393188, 0, 0, -327665, 0, 0, -327652, 0, 0, -262129, 0, 0, -262125, 0, 0, -262124, 0, 0, -262123, 0, 0, -262122, 0, 0, -262121, 0, 0, -262120, 0, 0, -262119, 0, 0, -262118, 0, 0, -262117, 0, 0, -262116, 0, 0, -196593, 0, 0, -196589, 0, 0, -131057, 0, 0, -131053, 0, 0, -65521, 0, 0, -65517, 0, 0, 15, 0, 0, 19, 0, 0, 65551, 0, 0, 65555, 0, 0, 131087, 0, 0, 131091, 0, 0, 196623, 0, 0, 196627, 0, 0, 262159, 0, 0, 262163, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0 )
+tile_data = PoolIntArray( -1245169, 0, 0, -1245168, 0, 0, -1245167, 0, 0, -1245166, 0, 0, -1245165, 0, 0, -1179633, 0, 0, -1179629, 0, 0, -1114097, 0, 0, -1114093, 0, 0, -1048561, 0, 0, -1048557, 0, 0, -983025, 0, 0, -983021, 0, 0, -917489, 0, 0, -917485, 0, 0, -851953, 0, 0, -851949, 0, 0, -786417, 0, 0, -786413, 0, 0, -720881, 0, 0, -720877, 0, 0, -655345, 0, 0, -655341, 0, 0, -589809, 0, 0, -589805, 0, 0, -524273, 0, 0, -524269, 0, 0, -458737, 0, 0, -458733, 0, 0, -393201, 0, 0, -393197, 0, 0, -327665, 0, 0, -327661, 0, 0, -262129, 0, 0, -262125, 0, 0, -196593, 0, 0, -196589, 0, 0, -131057, 0, 0, -131053, 0, 0, -65521, 0, 0, -65517, 0, 0, 15, 0, 0, 19, 0, 0, 65551, 0, 0, 65555, 0, 0, 131087, 0, 0, 131091, 0, 0, 196623, 0, 0, 196627, 0, 0, 262159, 0, 0, 262163, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0 )
 
 [node name="player" parent="." index="1" instance=ExtResource( 3 )]
 
-tile_data = PoolIntArray( 262162, 0, 0 )
+tile_data = PoolIntArray( 262161, 0, 0 )
 
 [node name="enemies" parent="." index="2" instance=ExtResource( 4 )]
 
 [node name="Exit" type="Area2D" parent="." index="3"]
 
-position = Vector2( 855.226, -160.349 )
+position = Vector2( 552, -536 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -42,7 +41,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -55.2258, -63.6508, 40.7742, -63.6508, 40.7742, 32.3492, -55.2258, 32.3492 )
+polygon = PoolVector2Array( -40, -40, 56, -40, 56, 32, -40, 32 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="HUD" type="CanvasLayer" parent="." index="4"]
@@ -126,11 +125,5 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 6 )
 stretch_mode = 0
-
-[node name="Utility" type="Node" parent="." index="5"]
-
-[node name="Utility" parent="Utility" index="0" instance=ExtResource( 7 )]
-
-position = Vector2( 528, 144 )
 
 
