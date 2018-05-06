@@ -72,6 +72,12 @@ func _draw():
 
 func _unhandled_input(event):
 	# change current selected ball
+	# select by number keys
+	for i in range(len(balls)):
+		if InputMap.event_is_action(event, "ball_" + str(i)) and event.is_pressed():
+			current_ball = i 
+			update_current_ball()
+	# select by scroll wheel
 	if InputMap.event_is_action(event, "change_current_ball_down") and event.is_pressed():
 		current_ball = (current_ball-1+len(balls))%len(balls)
 		update_current_ball()
