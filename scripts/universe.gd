@@ -25,4 +25,4 @@ func _input(event):
 
 func _ready():
 	#init("SimpleLevel")
-	init("LevelTest1")
+	init("LevelTest3")

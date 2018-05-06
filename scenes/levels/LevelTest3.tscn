@@ -1,36 +1,34 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scripts/levels/simple_level.gd" type="Script" id=1]
+[ext_resource path="res://scripts/levels/level_test_3.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/RobotoMono/RobotoMono-Bold.res" type="DynamicFont" id=5]
 [ext_resource path="res://images/balls/orange.png" type="Texture" id=6]
-[ext_resource path="res://scenes/enemies/Walker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/utility/Utility.tscn" type="PackedScene" id=7]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 level_name = "Test Level"
-label_duration = 3.0
+label_duration = 3
 
 [node name="walls" parent="." index="0" instance=ExtResource( 2 )]
 
-tile_data = PoolIntArray( -851956, 0, 0, -851952, 0, 0, -786420, 0, 0, -786416, 0, 0, -720884, 0, 0, -720880, 0, 0, -655348, 0, 0, -655344, 0, 0, -589812, 0, 0, -589808, 0, 0, -524276, 0, 0, -524272, 0, 0, -458740, 0, 0, -458736, 0, 0, -393204, 0, 0, -393200, 0, 0, -327668, 0, 0, -327664, 0, 0, -262132, 0, 0, -262128, 0, 0, -196596, 0, 0, -196592, 0, 0, -131060, 0, 0, -131056, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, 9, 0, 0, 19, 0, 0, 65545, 0, 0, 65555, 0, 0, 131081, 0, 0, 131091, 2, 0, 196617, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196627, 2, 0, 262153, 1, 0, 262163, 2, 0, 327689, 1, 0, 327699, 2, 0, 393225, 1, 0, 393235, 0, 0, 458761, 1, 0, 458771, 0, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524310, 0, 0, 524319, 0, 0, 589846, 0, 0, 589855, 0, 0, 655382, 0, 0, 655391, 0, 0, 720918, 0, 0, 720927, 0, 0, 786454, 0, 0, 786463, 0, 0, 851990, 0, 0, 851999, 0, 0, 917526, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 917532, 0, 0, 917533, 0, 0, 917534, 0, 0, 917535, 0, 0 )
+tile_data = PoolIntArray( -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -524266, 0, 0, -524265, 0, 0, -524264, 0, 0, -524263, 0, 0, -524262, 0, 0, -524261, 0, 0, -524260, 0, 0, -458737, 0, 0, -458724, 0, 0, -393201, 0, 0, -393188, 0, 0, -327665, 0, 0, -327652, 0, 0, -262129, 0, 0, -262125, 0, 0, -262124, 0, 0, -262123, 0, 0, -262122, 0, 0, -262121, 0, 0, -262120, 0, 0, -262119, 0, 0, -262118, 0, 0, -262117, 0, 0, -262116, 0, 0, -196593, 0, 0, -196589, 0, 0, -131057, 0, 0, -131053, 0, 0, -65521, 0, 0, -65517, 0, 0, 15, 0, 0, 19, 0, 0, 65551, 0, 0, 65555, 0, 0, 131087, 0, 0, 131091, 0, 0, 196623, 0, 0, 196627, 0, 0, 262159, 0, 0, 262163, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0 )
 
 [node name="player" parent="." index="1" instance=ExtResource( 3 )]
 
-tile_data = PoolIntArray( 786459, 0, 0 )
+tile_data = PoolIntArray( 262162, 0, 0 )
 
 [node name="enemies" parent="." index="2" instance=ExtResource( 4 )]
 
-tile_data = PoolIntArray( -1834984, 1, 0, -65510, 0, 0, -65505, 0, 0, 25, 0, 0, 32, 0, 0, 262187, 0, 0, 327702, 2, 0, 327703, 2, 0, 327705, 0, 0, 327706, 0, 0, 327711, 0, 0, 327712, 0, 0, 327714, 2, 0, 327715, 2, 0, 327723, 0, 0, 393259, 0, 0, 458795, 0, 0, 524331, 0, 0, 589867, 0, 0, 655403, 0, 0, 720939, 0, 0 )
-
 [node name="Exit" type="Area2D" parent="." index="3"]
 
-position = Vector2( 460, -450 )
+position = Vector2( 855.226, -160.349 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -44,7 +42,8 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -44, -46, 52, -46, 52, 34, -44, 34 )
+polygon = PoolVector2Array( -55.2258, -63.6508, 40.7742, -63.6508, 40.7742, 32.3492, -55.2258, 32.3492 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="HUD" type="CanvasLayer" parent="." index="4"]
 
@@ -128,8 +127,10 @@ size_flags_vertical = 1
 texture = ExtResource( 6 )
 stretch_mode = 0
 
-[node name="Walker" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Utility" type="Node" parent="." index="5"]
 
-position = Vector2( 386, 201 )
+[node name="Utility" parent="Utility" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 528, 144 )
 
 
