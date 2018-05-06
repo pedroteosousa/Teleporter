@@ -14,5 +14,5 @@ func utility(id, enter):
 				add_child(walls[i].get_ref())
 
 func _ready():
-	balls = [["SimpleBall", 1], ["DreddBall", 1]]
+	balls = [["StickyBall", 1], ["DreddBall", 1]]
 	walls = [null, null, null]

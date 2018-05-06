@@ -75,15 +75,12 @@ func _unhandled_input(event):
 	# select by number keys
 	for i in range(len(balls)):
 		if InputMap.event_is_action(event, "ball_" + str(i)) and event.is_pressed():
-			current_ball = i 
-			update_current_ball()
+			current_ball = i
 	# select by scroll wheel
 	if InputMap.event_is_action(event, "change_current_ball_down") and event.is_pressed():
 		current_ball = (current_ball-1+len(balls))%len(balls)
-		update_current_ball()
 	if InputMap.event_is_action(event, "change_current_ball_up") and event.is_pressed():
 		current_ball = (current_ball+1)%len(balls)
-		update_current_ball()
 	
 	# release ball with mouse
 	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
@@ -98,6 +95,7 @@ func _unhandled_input(event):
 		use_ball()
 
 func _process(delta):
+	update_current_ball()
 	clean_queue()
 	
 	# calculating elapsed time to be used in various situations
@@ -162,7 +160,6 @@ func load_map():
 
 func _ready():
 	load_map()
-	update_current_ball()
 	# positioning lavel on correct position
 	label = get_node("HUD/Level Name")
 	label.rect_position.y = get_viewport_rect().size.y/4
