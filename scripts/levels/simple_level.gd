@@ -159,8 +159,8 @@ func update_current_ball():
 # this function is called when user completes the level
 func completed():
 	print("level finished in " + str(elapsed_time) + " seconds")
+	get_parent().completed_level()
 	queue_free()
-	get_tree().change_scene("res://scenes/gui/MainMenu.tscn")
 
 func get_size_from_sprite(object):
 	var sprite = object.get_node("Sprite")

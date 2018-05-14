@@ -37,6 +37,5 @@ func load_settings():
 func get_setting(category, key):
 	return _settings[category][key]
 
-
 func set_setting(category, key, value):
 	_settings[category][key] = value

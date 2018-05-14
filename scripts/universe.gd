@@ -2,6 +2,9 @@ extends Node
 
 var basePath = "res://scenes/"
 
+var levels = ["LevelTest2", "LevelTest3", "LevelTest4", "LevelTest5", "LevelTest6"]
+var cur_level = 0
+
 func init(level):
 	level = load(basePath + "levels/" + level + ".tscn").instance()
 	add_child(level)
@@ -23,6 +26,10 @@ func _input(event):
 	if InputMap.event_is_action(event, "pause") and event.is_pressed() and !event.is_echo():
 		get_tree().paused = !get_tree().paused
 
+func completed_level():
+	if cur_level+1 < len(levels):
+		cur_level += 1
+		init(levels[cur_level])
+
 func _ready():
-	#init("SimpleLevel")
-	init("LevelTest7")
+	init(levels[cur_level])
