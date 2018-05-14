@@ -3,6 +3,8 @@ extends Node2D
 export (String) var level_name = "Test Level"
 # duration of level name being shown on screen
 export (float) var label_duration = 3
+# limiting size of the queue
+export (int) var queue_size = 10
 
 # array of usable balls in this level ([ball_name, quantity], if quantity = -1, you have infinite balls of that type)
 var balls = [["SimpleBall", -1], ["DreddBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
@@ -28,6 +30,23 @@ var player
 func utility():
 	pass
 
+func check_queue_availability(ball_name):
+	# max ball quantity
+	var mx_qtd = 0
+	for info in balls:
+		if ball_name == info[0]:
+			mx_qtd = info[1]
+	if mx_qtd < 0:
+		return true
+	var ball_qtd = 0
+	for ball in ball_queue:
+		if ball.ball_name == ball_name:
+			ball_qtd += 1
+	if ball_qtd < mx_qtd:
+		return true
+	else:
+		return false
+
 func clean_queue():
 	var i = 0
 	while i < len(ball_queue):
@@ -46,14 +65,21 @@ func use_ball():
 		ball_queue[0].used = true
 
 func create_ball(dir, vel):
+	if len(ball_queue) >= queue_size:
+		print('ball queue is full')
+		return
 	var ball_name = get_current_ball()
 	if ball_name == null:
 		return
-	var new_ball = weakref(load(scenePath + "balls/" + ball_name + ".tscn").instance())
-	new_ball.get_ref().set_position(player.get_position())
-	new_ball.get_ref().go(dir, vel)
-	ball_queue.append(Ball.new(ball_name, new_ball))
-	add_child(new_ball.get_ref())
+	if check_queue_availability(ball_name):
+		var new_ball = weakref(load(scenePath + "balls/" + ball_name + ".tscn").instance())
+		new_ball.get_ref().set_position(player.get_position())
+		new_ball.get_ref().go(dir, vel)
+		ball_queue.append(Ball.new(ball_name, new_ball))
+		add_child(new_ball.get_ref())
+	else:
+		print('too many balls of this type already in the queue')
+		return
 
 # called when player teleports
 func used(ball_name):
