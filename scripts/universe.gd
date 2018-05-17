@@ -32,10 +32,16 @@ func _input(event):
 	if InputMap.event_is_action(event, "pause") and event.is_pressed() and !event.is_echo():
 		get_tree().paused = !get_tree().paused
 
+func restart_level():
+	var tmp = get_node("CurrentLevel")
+	remove_child(tmp)
+	tmp.queue_free()
+	init()
+
 func completed_level():
 	if cur_level+1 < len(levels):
 		cur_level += 1
-		init()
+		restart_level()
 
 func _ready():
 	init()
