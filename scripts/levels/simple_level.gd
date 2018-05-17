@@ -27,6 +27,9 @@ var label
 # the player character
 var player
 
+# the amount of time the button is pressed
+var time_pressed = -1.0
+
 func utility():
 	pass
 
@@ -96,6 +99,11 @@ func _draw():
 		polygon.set(i, polygon[i] + exit.position)
 	draw_colored_polygon(polygon, Color(1,0.6,0.6,0.5))
 
+func get_intensity(elapsed):
+	var time_to_fill = 5.0;
+	var period = 2*PI/time_to_fill
+	return (-cos(elapsed*period)+1.0)/2.0
+
 func _unhandled_input(event):
 	# change current selected ball
 	# select by number keys
@@ -108,9 +116,17 @@ func _unhandled_input(event):
 	if InputMap.event_is_action(event, "change_current_ball_up") and event.is_pressed():
 		current_ball = (current_ball+1)%len(balls)
 	
-	# release ball with mouse
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1 and time_pressed == -1.0:
+		time_pressed = elapsed_time
+	
 	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
-		create_ball(player.get_local_mouse_position(), player.velocity)
+		time_pressed = elapsed_time - time_pressed
+		create_ball(player.get_local_mouse_position().normalized()*get_intensity(time_pressed), player.velocity)
+		time_pressed = -1.0
+	
+	# release ball with mouse
+	#if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
+	#	create_ball(player.get_local_mouse_position(), player.velocity)
 	# release ball with joystick
 	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and !event.is_echo():
 		var direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX), Input.get_joy_axis(0, JOY_ANALOG_LY))
@@ -126,6 +142,7 @@ func _process(delta):
 	
 	# calculating elapsed time to be used in various situations
 	elapsed_time += delta
+	print(get_intensity(elapsed_time))
 	
 	# showing label with level title at level start
 	if elapsed_time <= label_duration:
