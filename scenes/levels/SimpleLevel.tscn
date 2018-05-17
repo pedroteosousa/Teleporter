@@ -8,13 +8,14 @@
 [ext_resource path="res://images/balls/orange.png" type="Texture" id=6]
 [ext_resource path="res://scenes/enemies/Walker.tscn" type="PackedScene" id=7]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 level_name = "Test Level"
 label_duration = 3.0
+queue_size = 10
 
 [node name="walls" parent="." index="0" instance=ExtResource( 2 )]
 
