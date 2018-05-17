@@ -154,7 +154,7 @@ func update_current_ball():
 	var ball = load(scenePath + "balls/" + balls[current_ball][0] + ".tscn").instance()
 	var ball_sprite = ball.get_node('Sprite')
 	get_node("HUD/Ball Display/Image").texture = ball_sprite.texture
-	get_node("HUD/Ball Display/Label").text = ball.ball_name
+	get_node("HUD/Ball Display/Label").text = ball.ball_name + " (x" + str(balls[current_ball][1]) + ")" 
 
 # this function is called when user completes the level
 func completed():
