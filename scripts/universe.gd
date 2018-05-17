@@ -9,14 +9,10 @@ func init():
 	var level = levels[cur_level]
 	level = load(basePath + "levels/" + level + ".tscn").instance()
 	level.set_name("CurrentLevel")
-	print(level.get_name())
-	#print(get_children())
 	add_child(level)
-	#print(get_children())
 
 func _process(delta):
 	# handle pause menu visibility
-	print(get_children())
 	if get_tree().paused != get_node("HUD/PauseMenu").visible:
 		get_node("HUD/PauseMenu").visible = get_tree().paused
 		get_node("HUD/PauseMenu/Continue").grab_focus()
