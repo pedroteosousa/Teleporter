@@ -59,7 +59,6 @@ func clean_queue():
 
 func use_ball():
 	clean_queue()
-	print(ball_queue)
 	if len(ball_queue):
 		ball_queue[0].obj.get_ref().act(player)
 		ball_queue[0].used = true
@@ -91,7 +90,6 @@ func used(ball_name):
 func _draw():
 	var exit = get_node("Exit")
 	var polygon = exit.get_node("CollisionPolygon2D").polygon
-	print(polygon)
 	for i in range(polygon.size()):
 		polygon.set(i, polygon[i] + exit.position)
 	draw_colored_polygon(polygon, Color(1,0.6,0.6,0.5))
@@ -154,7 +152,7 @@ func update_current_ball():
 	var ball = load(scenePath + "balls/" + balls[current_ball][0] + ".tscn").instance()
 	var ball_sprite = ball.get_node('Sprite')
 	get_node("HUD/Ball Display/Image").texture = ball_sprite.texture
-	get_node("HUD/Ball Display/Label").text = ball.ball_name
+	get_node("HUD/Ball Display/Label").text = ball.ball_name + " (x" + str(balls[current_ball][1]) + ")" 
 
 # this function is called when user completes the level
 func completed():
