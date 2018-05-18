@@ -62,7 +62,6 @@ func clean_queue():
 
 func use_ball():
 	clean_queue()
-	print(ball_queue)
 	if len(ball_queue):
 		ball_queue[0].obj.get_ref().act(player)
 		ball_queue[0].used = true
@@ -94,7 +93,6 @@ func used(ball_name):
 func _draw():
 	var exit = get_node("Exit")
 	var polygon = exit.get_node("CollisionPolygon2D").polygon
-	print(polygon)
 	for i in range(polygon.size()):
 		polygon.set(i, polygon[i] + exit.position)
 	draw_colored_polygon(polygon, Color(1,0.6,0.6,0.5))
