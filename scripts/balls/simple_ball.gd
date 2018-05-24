@@ -80,4 +80,5 @@ func _physics_process(delta):
 	movement(delta)
 
 func _ready():
+	print(collision_layer)
 	init()
