@@ -2,7 +2,8 @@ extends "res://scripts/balls/simple_ball.gd"
 
 # take closest axis direction and release ball in that direction
 func go(dir, vel):
-	velocity = limit_velocity(dir) + vel
+	velocity = speed*dir
+	print(dir)
 	if abs(dir.x) > abs(dir.y):
 		dir.y = 0
 	else:

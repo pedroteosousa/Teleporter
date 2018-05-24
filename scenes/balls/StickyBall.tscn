@@ -13,7 +13,7 @@ radius = 8.0
 custom_solver_bias = 0.0
 radius = 9.0
 
-[node name="StickyBall" type="KinematicBody2D" index="0"]
+[node name="StickyBall" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
@@ -23,7 +23,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
 ball_name = "Sticky Ball"
 timeout = -1.0
-speed = 500
+speed = 250
 bounce = 1.0
 gravity = 100.0
 
