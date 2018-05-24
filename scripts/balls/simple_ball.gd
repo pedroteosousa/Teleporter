@@ -59,7 +59,7 @@ func movement(delta):
 	var collision = move_and_collide(get_movement_pattern()*delta)
 	if collision:
 		var reflect = collision.remainder.bounce(collision.normal)
-		velocity = velocity.bounce(collision.normal)
+		velocity = velocity.bounce(collision.normal)*bounce
 		move_and_collide(reflect)
 		#collided(collision)
 		#if "velocity" in collision.collider and "bounce" in collision.collider:
