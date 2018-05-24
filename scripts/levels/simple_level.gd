@@ -22,6 +22,9 @@ var joystick_speed = 300
 # elapsed_time since the beginning of the level
 var elapsed_time = 0
 
+# time needed to fill the charge bar
+var time_to_fill = 1.0
+
 # level title label
 var label
 # the player character
@@ -98,7 +101,6 @@ func _draw():
 	draw_colored_polygon(polygon, Color(1,0.6,0.6,0.5))
 
 func get_intensity(elapsed):
-	var time_to_fill = 5.0;
 	var period = 2*PI/time_to_fill
 	return (-cos(elapsed*period)+1.0)/2.0
 
@@ -140,7 +142,6 @@ func _process(delta):
 	
 	# calculating elapsed time to be used in various situations
 	elapsed_time += delta
-	print(get_intensity(elapsed_time))
 	
 	# showing label with level title at level start
 	if elapsed_time <= label_duration:

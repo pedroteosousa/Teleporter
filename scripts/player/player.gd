@@ -8,6 +8,8 @@ var current_ball = null
 # should camera follow the ball
 var should_follow = false
 
+var level
+
 func get_current_ball():
 	if len(get_parent().ball_queue):
 		current_ball = get_parent().ball_queue[0].obj
@@ -33,13 +35,25 @@ func follow_ball(pos = Vector2(0, 0), zoom = Vector2(1, 1), smoothing = false):
 	
 func enemy_collision():
 	queue_free()
+	
+func update_charge_bar(filled):
+	self.get_child(4).show()
+	self.get_child(3).show()
+	self.get_child(3).set_scale(Vector2(filled, 1))
 
 func _physics_process(delta):
 	get_current_ball()
-	
+
 	# gravity
 	velocity += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+	
+	#update charge bar
+	if level.time_pressed != -1.0:
+		update_charge_bar(level.get_intensity(level.elapsed_time-level.time_pressed))
+	else:
+		self.get_child(3).hide()
+		self.get_child(4).hide()
 	
 	# update camera behaviour
 	if should_follow and current_ball and current_ball.get_ref():
@@ -52,8 +66,13 @@ func _physics_process(delta):
 		follow_ball()
 
 func _ready():
+	self.get_child(3).hide()
+	self.get_child(4).hide()
 	set_physics_process(true)
 	set_process_input(true)
+	level = get_parent()
+	
+	#get_intensity
 
 func save():
 	var save_dict = {
