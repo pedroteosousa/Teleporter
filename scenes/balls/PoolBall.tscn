@@ -18,7 +18,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 ball_name = "Pool Ball"
 timeout = -1.0
-speed = 500
+speed = 250
 bounce = 0.6
 gravity = 0.0
 

@@ -27,7 +27,7 @@ func limit_velocity(dir):
 
 # defines the initial velocity of the ball
 func go(dir, vel):
-	velocity = dir*speed + vel
+	velocity = dir*speed
 
 # setting up which process should run
 func init():
