@@ -7,12 +7,14 @@ export (float) var label_duration = 3
 export (int) var queue_size = 10
 
 # array of usable balls in this level ([ball_name, quantity], if quantity = -1, you have infinite balls of that type)
-var balls = [["SimpleBall", -1], ["DreddBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
+var balls = [["SimpleBall", 3], ["DreddBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
 # current selected ball
 var current_ball = 0
 
 var ball_queue = []
 var Ball = load("res://scripts/levels/ball_info.gd")
+
+var ball_info_gui = []
 
 var scenePath = "res://scenes/"
 
@@ -137,7 +139,7 @@ func _unhandled_input(event):
 		use_ball()
 
 func _process(delta):
-	update_current_ball()
+	update_balls()
 	clean_queue()
 	
 	# calculating elapsed time to be used in various situations
@@ -165,12 +167,15 @@ func get_current_ball():
 		print("ball limit exceeded")
 		return null
 
-# updates current ball on HUD
-func update_current_ball():
-	var ball = load(scenePath + "balls/" + balls[current_ball][0] + ".tscn").instance()
-	var ball_sprite = ball.get_node('Sprite')
-	get_node("HUD/Ball Display/Image").texture = ball_sprite.texture
-	get_node("HUD/Ball Display/Label").text = ball.ball_name + " (x" + str(balls[current_ball][1]) + ")" 
+# update balls on HUD
+func update_balls():
+	for i in range(len(balls)):
+		ball_info_gui[i].get_node('Selected').hide()
+		if balls[i][1] >= 0:
+			ball_info_gui[i].get_node('Amount').text = str(balls[i][1])
+	
+	# select current ball
+	ball_info_gui[current_ball].get_node('Selected').show()
 
 # this function is called when user completes the level
 func completed():
@@ -207,6 +212,25 @@ func _ready():
 	label.rect_position.y = get_viewport_rect().size.y/4
 	label.rect_size.x = get_viewport_rect().size.x
 	label.text = level_name
+	
+	# setting ball info display
+	var ball_bar = get_node("HUD/Ball Display/Background")
+	var ball_display_scene = load(scenePath + 'gui/BallInfo.tscn')
+	for ball in balls:
+		var info = ball_display_scene.instance()
+		ball_info_gui.append(info)
+		ball_bar.add_child(info)
+		
+		# setting control position
+		info.set_position(Vector2((len(ball_info_gui)-1)*(info.get_size().x), 0))
+		
+		# setting image texture
+		var ball_texture = load(scenePath + "balls/" + ball[0] + ".tscn").instance().get_node('Sprite').texture
+		info.get_node('Image').texture = ball_texture
+		
+		# setting ball amount
+		if ball[1] >= 0:
+			info.get_node('Amount').text = str(ball[1])
 	
 	set_process(true)
 	set_process_unhandled_input(true)

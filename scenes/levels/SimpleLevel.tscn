@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/levels/simple_level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/RobotoMono/RobotoMono-Bold.res" type="DynamicFont" id=5]
-[ext_resource path="res://images/balls/orange.png" type="Texture" id=6]
-[ext_resource path="res://scenes/enemies/Walker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/gui/ball_back.png" type="Texture" id=6]
+[ext_resource path="res://scenes/enemies/Shooter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemies/Walker.tscn" type="PackedScene" id=8]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
@@ -23,6 +24,7 @@ tile_data = PoolIntArray( -851956, 0, 0, -851952, 0, 0, -786420, 0, 0, -786416, 
 
 [node name="player" parent="." index="1" instance=ExtResource( 3 )]
 
+position = Vector2( 0, -0.109497 )
 tile_data = PoolIntArray( 786459, 0, 0 )
 
 [node name="enemies" parent="." index="2" instance=ExtResource( 4 )]
@@ -82,8 +84,8 @@ anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
+margin_top = -20.0
+margin_right = 69.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -91,46 +93,32 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect" ]
 
-[node name="Label" type="Label" parent="HUD/Ball Display" index="0"]
+[node name="Background" type="NinePatchRect" parent="HUD/Ball Display" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 69.0
-margin_bottom = 14.0
+margin_right = 1024.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 1024, 20 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Test Name"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Image" type="TextureRect" parent="HUD/Ball Display" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 18.0
-margin_right = 69.0
-margin_bottom = 34.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 6 )
-stretch_mode = 0
+_sections_unfolded = [ "Rect" ]
 
-[node name="Walker" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Shooter" parent="." index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 386, 201 )
+
+[node name="Walker" parent="." index="6" instance=ExtResource( 8 )]
+
+position = Vector2( 799.737, 285.016 )
 
 
