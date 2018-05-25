@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/levels/level_test_6.gd" type="Script" id=1]
-[ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=4]
-[ext_resource path="res://fonts/RobotoMono/RobotoMono-Bold.res" type="DynamicFont" id=5]
-[ext_resource path="res://images/balls/orange.png" type="Texture" id=6]
+[ext_resource path="res://scenes/gui/LevelHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=5]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
@@ -16,17 +15,19 @@ level_name = "Test Level 6"
 label_duration = 3
 queue_size = 10
 
-[node name="walls" parent="." index="0" instance=ExtResource( 2 )]
+[node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="walls" parent="." index="1" instance=ExtResource( 3 )]
 
 tile_data = PoolIntArray( -1834993, 0, 0, -1834992, 0, 0, -1834991, 0, 0, -1834990, 0, 0, -1834989, 0, 0, -1769457, 0, 0, -1769453, 0, 0, -1703921, 0, 0, -1703917, 0, 0, -1638385, 0, 0, -1638381, 0, 0, -1572849, 0, 0, -1572845, 0, 0, -1507313, 0, 0, -1507309, 0, 0, -1441777, 0, 0, -1441773, 0, 0, -1376241, 0, 0, -1376237, 0, 0, -1310705, 0, 0, -1310701, 0, 0, -1245169, 0, 0, -1245165, 0, 0, -1179633, 0, 0, -1179629, 0, 0, -1114097, 0, 0, -1114093, 0, 0, -1048561, 0, 0, -1048557, 0, 0, -983025, 0, 0, -983021, 0, 0, -917489, 0, 0, -917485, 0, 0, -851953, 0, 0, -851949, 0, 0, -786417, 0, 0, -786413, 0, 0, -720881, 0, 0, -720877, 0, 0, -655345, 0, 0, -655341, 0, 0, -589809, 0, 0, -589805, 0, 0, -524273, 0, 0, -524269, 0, 0, -458737, 0, 0, -458733, 0, 0, -393201, 0, 0, -393197, 0, 0, -327665, 0, 0, -327661, 0, 0, -262129, 0, 0, -262125, 0, 0, -196593, 0, 0, -196589, 0, 0, -131057, 0, 0, -131053, 0, 0, -65521, 0, 0, -65517, 0, 0, 15, 0, 0, 19, 0, 0, 65551, 0, 0, 65555, 0, 0, 131087, 0, 0, 131091, 0, 0, 196623, 0, 0, 196627, 0, 0, 262159, 0, 0, 262163, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0 )
 
-[node name="player" parent="." index="1" instance=ExtResource( 3 )]
+[node name="player" parent="." index="2" instance=ExtResource( 4 )]
 
 tile_data = PoolIntArray( 262161, 0, 0 )
 
-[node name="enemies" parent="." index="2" instance=ExtResource( 4 )]
+[node name="enemies" parent="." index="3" instance=ExtResource( 5 )]
 
-[node name="Exit" type="Area2D" parent="." index="3"]
+[node name="Exit" type="Area2D" parent="." index="4"]
 
 position = Vector2( 552, -824 )
 input_pickable = true
@@ -44,87 +45,5 @@ _sections_unfolded = [ "Collision", "Transform" ]
 build_mode = 0
 polygon = PoolVector2Array( -40, -40, 56, -40, 56, 32, -40, 32 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="HUD" type="CanvasLayer" parent="." index="4"]
-
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="Level Name" type="Label" parent="HUD" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 208.0
-margin_bottom = 53.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 5 )
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Hint", "Mouse", "Rect", "Size Flags", "Theme", "custom_fonts" ]
-
-[node name="Ball Display" type="VBoxContainer" parent="HUD" index="1"]
-
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 0.0
-anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="Label" type="Label" parent="HUD/Ball Display" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 69.0
-margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "Test Name"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Image" type="TextureRect" parent="HUD/Ball Display" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 18.0
-margin_right = 69.0
-margin_bottom = 34.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 6 )
-stretch_mode = 0
 
 

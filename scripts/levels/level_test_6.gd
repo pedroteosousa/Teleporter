@@ -1,4 +1,4 @@
 extends "res://scripts/levels/simple_level.gd"
 
-func _ready():
+func init():
 	balls = [["SimpleBall", 2]]

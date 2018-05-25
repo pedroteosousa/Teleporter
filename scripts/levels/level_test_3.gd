@@ -13,6 +13,6 @@ func utility(id, enter):
 				walls[i].get_ref().set_position(32.0*Vector2(19.5, -6.5+i))
 				add_child(walls[i].get_ref())
 
-func _ready():
+func init():
 	balls = [["StickyBall", 1], ["DreddBall", 1]]
 	walls = [null, null, null]

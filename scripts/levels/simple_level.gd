@@ -35,6 +35,10 @@ var player
 # the amount of time the button is pressed
 var time_pressed = -1.0
 
+# set list of balls
+func init():
+	pass
+
 func utility():
 	pass
 
@@ -206,6 +210,9 @@ func load_map():
 		map.hide()
 
 func _ready():
+	# get list of balls
+	init()
+	
 	load_map()
 	# positioning lavel on correct position
 	label = get_node("HUD/Level Name")
@@ -215,6 +222,7 @@ func _ready():
 	
 	# setting ball info display
 	var ball_bar = get_node("HUD/Ball Display/Background")
+	print(ball_bar)
 	var ball_display_scene = load(scenePath + 'gui/BallInfo.tscn')
 	for ball in balls:
 		var info = ball_display_scene.instance()

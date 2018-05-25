@@ -13,6 +13,6 @@ func utility(id, enter):
 				enemies[i].get_ref().set_position(32.0*Vector2(32+i, -40))
 				add_child(enemies[i].get_ref())
 
-func _ready():
+func init():
 	balls = [["StickyBall", 1], ["SimpleBall", 1], ["BalloonBall", 1]]
 	enemies = [null, null, null, null, null, null]
