@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Drifting-Things.ogg-05706d4cb7bbe621a6c0592f73d81167.oggstr"
+
+[deps]
+
+source_file="res://sounds/music/Drifting-Things.ogg"
+source_md5="0fa6ef55c212f0ad88f5f1bd379e9dc8"
+
+dest_files=[ "res://.import/Drifting-Things.ogg-05706d4cb7bbe621a6c0592f73d81167.oggstr" ]
+dest_md5="dbb45d0740d3e61a4479f2147c4444ce"
+
+[params]
+
+loop=true
+loop_offset=0

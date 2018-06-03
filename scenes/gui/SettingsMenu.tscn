@@ -5,11 +5,7 @@
 [ext_resource path="res://images/settingsmenu/windowsize.png" type="Texture" id=3]
 [ext_resource path="res://images/settingsmenu/back.png" type="Texture" id=4]
 
-
-
-
-
-[node name="MarginContainer" type="MarginContainer" index="0"]
+[node name="MarginContainer" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -29,8 +25,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 1025.0
-margin_bottom = 601.0
+margin_right = 1024.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
