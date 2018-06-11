@@ -16,5 +16,5 @@ func teleport(body):
 			if portal.id == id and portal.get_instance_id() != self.get_instance_id():
 				portal.ignore = true
 				body.position = portal.position
-				body.velocity = body.velocity.bounce(normal)
+				body.velocity = body.velocity.reflect(normal)
 				break
