@@ -28,8 +28,6 @@ tile_data = PoolIntArray( 262163, 0, 0 )
 
 [node name="enemies" parent="." index="3" instance=ExtResource( 5 )]
 
-tile_data = PoolIntArray( 786474, 0, 0, 786475, 0, 0, 786476, 0, 0, 786477, 0, 0 )
-
 [node name="Exit" type="Area2D" parent="." index="4"]
 
 position = Vector2( 552, -376 )

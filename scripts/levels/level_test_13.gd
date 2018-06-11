@@ -1,7 +1,7 @@
 extends "res://scripts/levels/simple_level.gd"
 
 var destroyed = 0
-var WALLS_AMOUNT = 6
+var WALLS_AMOUNT = 4
 var wall = []
 
 func init():
@@ -19,6 +19,10 @@ func destroy_walls():
 			wall[i] = load("res://scenes/walls/SimpleWall.tscn").instance()
 			wall[i].set_position(32.0*Vector2(20.5, 3.5+i))
 			add_child(wall[i])
+		for i in range (4):
+			var fire = load("res://scenes/enemies/Fire.tscn").instance()
+			fire.set_position(16.0*Vector2(42.5+i, 12))
+			add_child(fire)
 		destroyed = 1
 
 func _ready():
