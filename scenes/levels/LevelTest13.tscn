@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/levels/level_test_13.gd" type="Script" id=1]
+[ext_resource path="res://scenes/gui/LevelHUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/utility/Utility.tscn" type="PackedScene" id=6]
+
+[node name="Level" type="Node2D" index="0"]
+
+pause_mode = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+level_name = "Test Level"
+label_duration = 3
+queue_size = 10
+
+[node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="walls" parent="." index="1" instance=ExtResource( 3 )]
+
+tile_data = PoolIntArray( -1245170, 0, 0, -1245169, 0, 0, -1245168, 0, 0, -1245167, 0, 0, -1245166, 0, 0, -1245165, 0, 0, -1245164, 0, 0, -1245163, 0, 0, -1245162, 0, 0, -1245161, 0, 0, -1245160, 0, 0, -1179634, 0, 0, -1179624, 0, 0, -1114098, 0, 0, -1114088, 0, 0, -1048562, 0, 0, -1048552, 0, 0, -983026, 0, 0, -983020, 0, 0, -983019, 0, 0, -983018, 0, 0, -983017, 2, 0, -983016, 0, 0, -917490, 0, 0, -917484, 0, 0, -917482, 0, 0, -917480, 0, 0, -851954, 0, 0, -851948, 0, 0, -851946, 0, 0, -851944, 0, 0, -786418, 0, 0, -786412, 0, 0, -786410, 0, 0, -786408, 0, 0, -720882, 0, 0, -720876, 0, 0, -720874, 0, 0, -720872, 0, 0, -655346, 0, 0, -655345, 0, 0, -655344, 0, 0, -655343, 0, 0, -655342, 0, 0, -655341, 0, 0, -655340, 0, 0, -655338, 0, 0, -655336, 0, 0, -589802, 0, 0, -589800, 0, 0, -524273, 0, 0, -524272, 0, 0, -524271, 0, 0, -524270, 0, 0, -524269, 0, 0, -524268, 0, 0, -524267, 0, 0, -524266, 0, 0, -524264, 0, 0, -458737, 0, 0, -458728, 0, 0, -393201, 0, 0, -393192, 0, 0, -327665, 0, 0, -327661, 0, 0, -327660, 0, 0, -327659, 0, 0, -327658, 0, 0, -327657, 0, 0, -327656, 0, 0, -262129, 0, 0, -262125, 0, 0, -196593, 0, 0, -196589, 0, 0, -196588, 0, 0, -196587, 0, 0, -196586, 0, 0, -196585, 0, 0, -131057, 0, 0, -131049, 0, 0, -65521, 0, 0, -65513, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 23, 0, 0, 65556, 0, 0, 65559, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 3, 0, 131094, 3, 0, 131095, 0, 0, 196618, 0, 0, 196631, 0, 0, 262154, 0, 0, 262167, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327703, 0, 0 )
+
+[node name="player" parent="." index="2" instance=ExtResource( 4 )]
+
+tile_data = PoolIntArray( 262163, 0, 0 )
+
+[node name="enemies" parent="." index="3" instance=ExtResource( 5 )]
+
+tile_data = PoolIntArray( 786474, 0, 0, 786475, 0, 0, 786476, 0, 0, 786477, 0, 0 )
+
+[node name="Exit" type="Area2D" parent="." index="4"]
+
+position = Vector2( 552, -376 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Exit" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -40, -40, 56, -40, 56, 32, -40, 32 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Utility" type="Node" parent="." index="5"]
+
+[node name="Utility" parent="Utility" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( 367.986, 112.044 )
+
+
