@@ -13,6 +13,8 @@ var level
 func get_current_ball():
 	if len(get_parent().ball_queue):
 		current_ball = get_parent().ball_queue[0].obj
+	else:
+		current_ball = null
 
 func _unhandled_input(event):
 	# jump
@@ -21,7 +23,7 @@ func _unhandled_input(event):
 	
 	# make camera follow the current ball
 	if InputMap.event_is_action(event, "follow_ball"):
-		if event.is_pressed() and current_ball:
+		if event.is_pressed():
 			should_follow = true
 		else:
 			should_follow = false
@@ -56,11 +58,18 @@ func _physics_process(delta):
 		self.get_child(4).hide()
 	
 	# update camera behaviour
-	if should_follow and current_ball and current_ball.get_ref():
-		var screen_size = get_viewport_rect().size
-		var dist = current_ball.get_ref().get_position() - get_position()
-		var zoom = max(1.0, max(2*abs(dist.x / screen_size.x), 2*abs(dist.y / screen_size.y)))
-		follow_ball(dist/2.0, Vector2(zoom, zoom), true)
+	if should_follow:
+		if current_ball and current_ball.get_ref():
+			var screen_size = get_viewport_rect().size
+			var dist = current_ball.get_ref().get_position() - get_position()
+			var zoom = max(1.0, max(2*abs(dist.x / screen_size.x), 2*abs(dist.y / screen_size.y)))
+			follow_ball(dist/2.0, Vector2(zoom, zoom), true)
+		else:
+			var screen_size = get_viewport_rect().size
+			var dist = get_parent().center - get_position()
+			var zoom = max(1.0, 1.3*max(abs(get_parent().size.x / screen_size.x), abs(get_parent().size.y / screen_size.y)))
+			follow_ball(dist, Vector2(zoom, zoom), true)
+			pass
 	elif should_follow:
 		should_follow = false
 		follow_ball()
