@@ -69,8 +69,6 @@ func clean_queue():
 	var i = 0
 	while i < len(ball_queue):
 		if !ball_queue[i].obj or !ball_queue[i].obj.get_ref():
-			if ball_queue[i].used:
-				used(ball_queue[i].ball_name)
 			ball_queue.remove(i)
 		else:
 			i += 1
@@ -94,6 +92,7 @@ func create_ball(dir, vel):
 		new_ball.get_ref().go(dir, vel)
 		ball_queue.append(Ball.new(ball_name, new_ball))
 		add_child(new_ball.get_ref())
+		used(ball_name)
 	else:
 		print('too many balls of this type already in the queue')
 		return
