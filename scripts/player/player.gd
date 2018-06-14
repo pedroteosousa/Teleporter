@@ -20,6 +20,7 @@ func _unhandled_input(event):
 	# jump
 	if InputMap.event_is_action(event, "jump") and is_on_floor():
 		velocity.y -= 150
+		$JumpFX.play()
 	
 	# make camera follow the current ball
 	if InputMap.event_is_action(event, "follow_ball"):
