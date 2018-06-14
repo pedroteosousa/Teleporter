@@ -7,10 +7,10 @@ path="res://.import/jumpFx.wav-ace28ffffc0d6e7f63983784462c069d.sample"
 [deps]
 
 source_file="res://sounds/sound effects/jumpFx.wav"
-source_md5="a63cc034f03fc57050e1d53d8ab60526"
+source_md5="3528b6eaf60fddf7d9f5e4832a29d794"
 
 dest_files=[ "res://.import/jumpFx.wav-ace28ffffc0d6e7f63983784462c069d.sample" ]
-dest_md5="fa9598d60f16d86d46e62871d754cdaf"
+dest_md5="2eb44a07cf1c82a734bd5a8e07f3b095"
 
 [params]
 
