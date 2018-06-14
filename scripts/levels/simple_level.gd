@@ -37,6 +37,9 @@ var player
 # the amount of time the button is pressed
 var time_pressed = -1.0
 
+# map info
+var size
+var center
 
 # set list of balls
 func init():
@@ -198,6 +201,8 @@ func get_size_from_sprite(object):
 
 # reading all tilesmaps and translating dummy cells
 func load_map():
+	var top_left = Vector2(INF, INF)
+	var bottom_right = Vector2(-INF, -INF)
 	for map in get_children():
 		if !(map is TileMap):
 			continue
@@ -208,11 +213,18 @@ func load_map():
 			var path = scenePath + map.get_name() + "/" + name + ".tscn"
 			var object = load(path).instance()
 			var pos = cell * map.cell_size.x + get_size_from_sprite(object)/2
+			
+			# setting map extremes
+			top_left = Vector2(min(top_left.x, pos.x), min(top_left.y, pos.y))
+			bottom_right = Vector2(max(top_left.x, pos.x), max(top_left.y, pos.y))
+			
 			object.set_position(pos)
 			add_child(object)
 			if map.get_name() == 'player':
 				player = object
 		map.hide()
+	center = (top_left + bottom_right) / 2
+	size = bottom_right - top_left
 
 func set_message():
 	pass
