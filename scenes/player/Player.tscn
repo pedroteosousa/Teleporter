@@ -76,7 +76,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="JumpFX" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 5 )
-volume_db = 0.0
+volume_db = 10.0
 autoplay = false
 mix_target = 0
 bus = "Master"
