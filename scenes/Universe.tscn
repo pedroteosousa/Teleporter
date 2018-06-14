@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/universe.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sounds/music/Drifting-Things.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sounds/music/Mystical-Ocean-Puzzle-Game (1).ogg" type="AudioStream" id=3]
 
 [node name="Universe" type="Node"]
 

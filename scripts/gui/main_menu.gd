@@ -4,7 +4,7 @@ onready var music = get_node("/root/Music")
 
 func _ready():
 	get_tree().paused = false
-	
+	music.play()
 	get_children()[0].grab_focus()
 	for i in get_children():
 		i.connect("pressed", self, "on_pressed", [i])
