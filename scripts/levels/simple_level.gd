@@ -5,6 +5,8 @@ export (String) var level_name = "Test Level"
 export (float) var label_duration = 3
 # limiting size of the queue
 export (int) var queue_size = 10
+# true if level is a tutorial, false otherwise
+export (bool) var tutorial = false
 
 # array of usable balls in this level ([ball_name, quantity], if quantity = -1, you have infinite balls of that type)
 var balls = [["SimpleBall", -1], ["DreddBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
@@ -34,6 +36,7 @@ var player
 
 # the amount of time the button is pressed
 var time_pressed = -1.0
+
 
 # set list of balls
 func init():
@@ -108,9 +111,11 @@ func _draw():
 
 func get_intensity(elapsed):
 	var period = 2*PI/time_to_fill
-	return (-cos(elapsed*period)+1.0)/2.0
+	return (-cos(elapsed*period+PI/2.0)+1.0)/2.0
 
 func _unhandled_input(event):
+	if (tutorial == true):
+		return
 	# change current selected ball
 	# select by number keys
 	for i in range(len(balls)):
@@ -208,6 +213,12 @@ func load_map():
 			if map.get_name() == 'player':
 				player = object
 		map.hide()
+
+func set_message():
+	pass
+	
+func wait_for_input():
+	pass
 
 func _ready():
 	# get list of balls
