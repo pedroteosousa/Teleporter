@@ -48,22 +48,15 @@ func init():
 func utility():
 	pass
 
-func check_queue_availability(ball_name):
-	# max ball quantity
-	var mx_qtd = 0
+func check_availability(ball_name):
+	#quantity of remaining balls
+	var qtd = 0
 	for info in balls:
 		if ball_name == info[0]:
-			mx_qtd = info[1]
-	if mx_qtd < 0:
-		return true
-	var ball_qtd = 0
-	#for ball in ball_queue:
-	#	if ball.ball_name == ball_name:
-	#		ball_qtd += 1
-	if ball_qtd < mx_qtd:
-		return true
-	else:
+			qtd = info[1]
+	if qtd == 0:
 		return false
+	return true
 
 func clean_queue():
 	var i = 0
@@ -86,7 +79,7 @@ func create_ball(dir, vel):
 	var ball_name = get_current_ball()
 	if ball_name == null:
 		return
-	if check_queue_availability(ball_name):
+	if check_availability(ball_name):
 		var new_ball = weakref(load(scenePath + "balls/" + ball_name + ".tscn").instance())
 		new_ball.get_ref().set_position(player.get_position())
 		new_ball.get_ref().go(dir, vel)
