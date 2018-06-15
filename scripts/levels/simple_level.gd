@@ -57,9 +57,9 @@ func check_queue_availability(ball_name):
 	if mx_qtd < 0:
 		return true
 	var ball_qtd = 0
-	for ball in ball_queue:
-		if ball.ball_name == ball_name:
-			ball_qtd += 1
+	#for ball in ball_queue:
+	#	if ball.ball_name == ball_name:
+	#		ball_qtd += 1
 	if ball_qtd < mx_qtd:
 		return true
 	else:
