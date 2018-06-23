@@ -18,7 +18,7 @@ var messages = ["Now let's introduce the different balls\nyou can play with",
 				"Throw it against the wall to check it out\n",
 				"",
 				"...and teleport yourself to it... again",
-				"DreddBall: this is a ball that you can\nactually control while it moves!", #12
+				"Dredd Ball: this is a ball that you can\nactually control while it moves!", #12
 				"As soon as you throw it you can control\nits movement with the W/A/S/D keys",
 				"Alternatively you may use the arrows too\nThis ball has a downside though...",
 				"If it hits a wall the ball will disappear\nIt also dies if it travels for over 5 secs",
@@ -26,8 +26,8 @@ var messages = ["Now let's introduce the different balls\nyou can play with",
 				"",
 				"Hm, you know what to do at this point. If\nit died just press continue, don't worry",
 				"By the way, the camera follows the ball\nso it's easier to keep track of it",
-				"CrazyBall: this is one crazy ball! Its\ntrajectory goes up and down over the time", #20
-				"Oh! This ball also dies if it hits a wall\nHowever itt doesn't have a time limit",
+				"Crazy Ball: this is one crazy ball! Its\ntrajectory goes up and down over the time", #20
+				"Oh! This ball also dies if it hits a wall\nHowever it doesn't have a time limit",
 				"Anyway, go ahead and try it out and you\nwill see what I'm talking about",
 				"",
 				"You know the drill. Again, if it died\njust press continue. Don't worry!",
