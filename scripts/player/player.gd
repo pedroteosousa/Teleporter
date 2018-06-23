@@ -18,7 +18,7 @@ func get_current_ball():
 
 func _unhandled_input(event):
 	# jump
-	if InputMap.event_is_action(event, "jump") and is_on_floor():
+	if InputMap.event_is_action(event, "jump") and is_on_floor() and !level.tutorial:
 		velocity.y -= 150
 		$JumpFX.play()
 	

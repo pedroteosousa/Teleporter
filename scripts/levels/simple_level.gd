@@ -150,12 +150,14 @@ func _process(delta):
 	elapsed_time += delta
 	
 	# showing label with level title at level start
-	if elapsed_time <= label_duration:
-		var alpha = 1-(2*abs(label_duration/2.0 - elapsed_time)) / (label_duration)
-		label.add_color_override("font_color", Color(.576, .80, .918, alpha))
-	elif elapsed_time > label_duration and label_duration > 0:
-		label_duration = -1
-		label.hide()
+	if (tutorial == false):
+		if elapsed_time <= label_duration:
+			var alpha = 1-(2*abs(label_duration/2.0 - elapsed_time)) / (label_duration)
+			label.add_color_override("font_color", Color(.576, .80, .918, alpha))
+		elif elapsed_time > label_duration and label_duration > 0:
+			label_duration = -1
+			label.hide()
+	else: label.hide()
 	
 	# checking if level was completed
 	var exit = get_node("Exit")
@@ -229,7 +231,7 @@ func _ready():
 	init()
 	
 	load_map()
-	# positioning lavel on correct position
+	# positioning label on correct position
 	label = get_node("HUD/Level Name")
 	label.rect_position.y = get_viewport_rect().size.y/4
 	label.rect_size.x = get_viewport_rect().size.x

@@ -28,7 +28,7 @@ func init():
 	for i in range (WALLS_AMOUNT):
 		walls.append(null)
 		walls[i] = load("res://scenes/walls/SimpleWall.tscn").instance()
-		walls[i].set_position(32.0*Vector2(24.5, 0.5+i))
+		walls[i].set_position(32.0*Vector2(21.5, 0.5+i))
 		add_child(walls[i])
 
 
@@ -44,11 +44,11 @@ func wait_for_input(event):
 	if (cur_message > len(messages)):
 		return false
 	
-	if (cur_message <= 2):
+	elif (cur_message <= 2):
 		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
 			return show_message()
 			
-	if (cur_message == 3):
+	elif (cur_message == 3):
 		if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1 and time_pressed == -1.0:
 			time_pressed = elapsed_time
 			return show_message()
@@ -68,7 +68,7 @@ func wait_for_input(event):
 	elif (cur_message == 6):
 		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
 			player.get_node("Camera2D").zoom = Vector2(1,1)
-			player.get_node("Camera2D").position = 32*Vector2(28,2) - player.get_position()
+			player.get_node("Camera2D").position = 32*Vector2(24.5,2.5) - player.get_position()
 			return show_message()
 
 	elif (cur_message == 7):
@@ -78,15 +78,13 @@ func wait_for_input(event):
 			
 	elif (cur_message == 8):
 		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
-			print("Removendo?")
 			for i in range (WALLS_AMOUNT):
 				walls[i].queue_free()
 			return show_message()
 			
+			
 	elif (cur_message == 9):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
-			popup.hide()
-			return false
+		return false
 			
 	#last one:
 		#if blablabla
