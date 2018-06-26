@@ -128,19 +128,18 @@ func _unhandled_input(event):
 	
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1 and time_pressed == -1.0:
 		time_pressed = elapsed_time
+	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and time_pressed == -1.0:
+		time_pressed = elapsed_time
 	
 	if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 		time_pressed = elapsed_time - time_pressed
 		create_ball(player.get_local_mouse_position().normalized()*get_intensity(time_pressed), player.velocity)
 		time_pressed = -1.0
-	
-	# release ball with mouse
-	#if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
-	#	create_ball(player.get_local_mouse_position(), player.velocity)
-	# release ball with joystick
-	if InputMap.event_is_action(event, "release_joystick") and event.is_pressed() and !event.is_echo():
+	if InputMap.event_is_action(event, "release_joystick") and !event.is_pressed():
+		time_pressed = elapsed_time - time_pressed
 		var direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX), Input.get_joy_axis(0, JOY_ANALOG_LY))
-		create_ball(direction*joystick_speed, player.velocity)
+		create_ball(direction.normalized()*get_intensity(time_pressed), player.velocity)
+		time_pressed = -1.0
 	
 	# use ball
 	if InputMap.event_is_action(event, "teleport") and event.is_pressed():
