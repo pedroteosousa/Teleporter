@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/levels/tutorial_level_2.gd" type="Script" id=1]
+[ext_resource path="res://scripts/levels/tutorial_level_4.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/LevelHUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/tilemaps/walls.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=4]
@@ -12,7 +12,7 @@
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
-level_name = "Tutorial Level 2"
+level_name = "Tutorial Level 4"
 label_duration = 3
 queue_size = 10
 tutorial = true
@@ -21,17 +21,20 @@ tutorial = true
 
 [node name="walls" parent="." index="1" instance=ExtResource( 3 )]
 
-tile_data = PoolIntArray( -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, -65512, 0, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, 8, 0, 0, 27, 0, 0, 65544, 0, 0, 65563, 0, 0, 131080, 0, 0, 131099, 0, 0, 196616, 0, 0, 196635, 0, 0, 262152, 0, 0, 262171, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0, 327707, 0, 0 )
+tile_data = PoolIntArray( -327658, 0, 0, -327657, 0, 0, -327656, 0, 0, -327655, 0, 0, -327654, 0, 0, -327653, 0, 0, -327652, 0, 0, -262122, 0, 0, -262116, 0, 0, -196586, 0, 0, -196580, 0, 0, -131050, 0, 0, -131044, 0, 0, -65514, 0, 0, -65508, 0, 0, 22, 0, 0, 28, 0, 0, 65558, 0, 0, 65564, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 3, 0, 131096, 3, 0, 131097, 3, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 196623, 0, 0, 196630, 2, 0, 262159, 0, 0, 262166, 2, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327699, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327705, 0, 0, 327706, 0, 0 )
 
 [node name="player" parent="." index="2" instance=ExtResource( 4 )]
 
+position = Vector2( -22.5564, 0 )
 tile_data = PoolIntArray( 262161, 0, 0 )
 
 [node name="enemies" parent="." index="3" instance=ExtResource( 5 )]
 
+tile_data = PoolIntArray( 393268, 0, 0, 393269, 0, 0, 458804, 0, 0, 458805, 0, 0, 524340, 0, 0, 524341, 0, 0, 589876, 0, 0, 589877, 0, 0 )
+
 [node name="Exit" type="Area2D" parent="." index="4"]
 
-position = Vector2( 763.098, 96 )
+position = Vector2( 794.942, -43.9819 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

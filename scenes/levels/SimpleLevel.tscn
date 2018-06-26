@@ -16,6 +16,7 @@ _sections_unfolded = [ "Pause" ]
 level_name = "Test Level"
 label_duration = 3.0
 queue_size = 10
+tutorial = false
 
 [node name="walls" parent="." index="0" instance=ExtResource( 2 )]
 

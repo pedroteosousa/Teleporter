@@ -37,9 +37,13 @@ func follow_ball(pos = Vector2(0, 0), zoom = Vector2(1, 1), smoothing = false):
 	get_node("Camera2D").smoothing_enabled = smoothing
 	
 func enemy_collision():
-	var universe = get_tree().get_current_scene()
-	universe.restart_level()
-	queue_free()
+	if level.level_name == "Tutorial Level 4":
+		print(":D")
+		set_position(32*Vector2(17.5, 4.5))
+	else:
+		var universe = get_tree().get_current_scene()
+		universe.restart_level()
+		queue_free()
 	
 func update_charge_bar(filled):
 	self.get_child(4).show()
