@@ -5,7 +5,7 @@ var cur_message = 0
 var WALLS_AMOUNT = 5
 var walls = []
 
-var messages = ["Welcome to the tutorial!", #0
+var messages = ["Welcome to the tutorial!\nClick on mouse left button to continue", #0
 				"You will be given the basic instructions\nto play the game now",
 				"Let's throw a ball. The direction of the\nthrow is based on your mouse position",
 				"Hold the left button of the mouse to throw\nthe ball with the desired force!",
@@ -13,7 +13,8 @@ var messages = ["Welcome to the tutorial!", #0
 				"You may teleport yourself to the ball\nPress the right mouse button to do so!",
 				"Great! That's the basic mechanic of\nthe game. But... what's the goal?",
 				"Well. This is the exit. Every level of\nthe game has one. Basically, find it and\nteleport yourself there",
-				"Enough talking. Now get outta here!\nLet me help and remove that wall for you...",
+				"One more thing: you may jump by pressing\nspace when you are on the floor. Try it!",
+				"That's it for now. Get outta here!\nLet me help and remove that wall for you...",
 				"There you go!\nTeleport yourself to the exit!"
 				]
 
@@ -77,13 +78,19 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message == 8):
+		if player.is_on_floor():
+			if Input.is_key_pressed(KEY_SPACE):
+				player.velocity.y -= 150
+				return show_message()
+			
+	elif (cur_message == 9):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			for i in range (WALLS_AMOUNT):
 				walls[i].queue_free()
 			return show_message()
 			
 			
-	elif (cur_message == 9):
+	elif (cur_message == 10):
 		return false
 			
 	#last one:
