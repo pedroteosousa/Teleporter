@@ -66,7 +66,7 @@ func wait_for_input(event):
 		return false
 
 	elif (cur_message <= 4):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 
 	elif (cur_message == 5):
@@ -88,7 +88,7 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message == 8):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
 	elif (cur_message == 9):
@@ -110,7 +110,7 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message <= 15):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
 	elif (cur_message == 16):
@@ -126,13 +126,13 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message == 18):
-		if (InputMap.event_is_action(event, "teleport") and event.is_pressed()) or (Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE)):
+		if ((InputMap.event_is_action(event, "teleport") and event.is_pressed()) or (event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1)):
 			use_ball()
 			current_ball += 1
 			return show_message()
 
 	elif (cur_message <= 21):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
 	elif (cur_message == 22):
@@ -148,16 +148,16 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message == 24):
-		if (InputMap.event_is_action(event, "teleport") and event.is_pressed()) or (Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE)):
+		if ((InputMap.event_is_action(event, "teleport") and event.is_pressed()) or (event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1)):
 			use_ball()
 			return show_message()
 			
 	elif (cur_message == 25):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
 	elif (cur_message == 26):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()	
 		if InputMap.event_is_action(event, "change_current_ball_down") and event.is_pressed():
 			current_ball = (current_ball-1+len(balls))%len(balls)

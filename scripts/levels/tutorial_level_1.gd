@@ -45,7 +45,7 @@ func wait_for_input(event):
 		return false
 	
 	elif (cur_message <= 2):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
 	elif (cur_message == 3):
@@ -66,18 +66,18 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message == 6):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			player.get_node("Camera2D").zoom = Vector2(0.5,0.5)
 			player.get_node("Camera2D").position = 32*Vector2(24.5,2.5) - player.get_position()
 			return show_message()
 
 	elif (cur_message == 7):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			player.follow_ball()
 			return show_message()
 			
 	elif (cur_message == 8):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			for i in range (WALLS_AMOUNT):
 				walls[i].queue_free()
 			return show_message()

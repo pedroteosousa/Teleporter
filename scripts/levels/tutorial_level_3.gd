@@ -58,7 +58,7 @@ func wait_for_input(event):
 		return false
 
 	elif (cur_message <= 1):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 
 	elif (cur_message == 2):
@@ -80,7 +80,7 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message <= 6):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
 	elif (cur_message == 7):
@@ -102,11 +102,11 @@ func wait_for_input(event):
 			return show_message()
 	
 	elif (cur_message <= 11):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 	
 	elif (cur_message == 12):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			destructible_wall = load("res://scenes/walls/DestructibleWall.tscn").instance()
 			destructible_wall.set_position(32.0*Vector2(15.5, 2.5))
 			wk = weakref(destructible_wall)
@@ -116,7 +116,7 @@ func wait_for_input(event):
 			return show_message()
 			
 	elif (cur_message == 13):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			player.follow_ball()
 			return show_message()
 			
@@ -144,7 +144,7 @@ func wait_for_input(event):
 		return show_message()
 	
 	elif (cur_message <= 18):
-		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
 	elif (cur_message == 19):
