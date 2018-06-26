@@ -2,7 +2,7 @@ extends Node
 
 var basePath = "res://scenes/"
 
-var levels = ["TutorialLevel1", "TutorialLevel2", "LevelTest13", "LevelTest4", "LevelTest5", "LevelTest6", "LevelTest1"]
+var levels = ["TutorialLevel3", "TutorialLevel1", "TutorialLevel2", "LevelTest13", "LevelTest4", "LevelTest5", "LevelTest6", "LevelTest1"]
 var cur_level = 0
 
 func init():

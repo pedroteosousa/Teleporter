@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sounds/music/Mystical-Ocean-Puzzle-Game (1).ogg" type="AudioStream" id=3]
 
-[node name="Universe" type="Node"]
+[node name="Universe" type="Node" index="0"]
 
 pause_mode = 2
 script = ExtResource( 1 )

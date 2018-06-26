@@ -67,7 +67,7 @@ func wait_for_input(event):
 			
 	elif (cur_message == 6):
 		if Input.is_key_pressed(KEY_ENTER) or Input.is_key_pressed(KEY_SPACE):
-			player.get_node("Camera2D").zoom = Vector2(1,1)
+			player.get_node("Camera2D").zoom = Vector2(0.5,0.5)
 			player.get_node("Camera2D").position = 32*Vector2(24.5,2.5) - player.get_position()
 			return show_message()
 
