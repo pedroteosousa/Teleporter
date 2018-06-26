@@ -75,9 +75,11 @@ func use_ball():
 func create_ball(dir, vel):
 	if len(ball_queue) >= queue_size:
 		print('ball queue is full')
+		ball_info_gui[current_ball].warn()
 		return
 	var ball_name = get_current_ball()
 	if ball_name == null:
+		ball_info_gui[current_ball].warn()
 		return
 	if check_availability(ball_name):
 		var new_ball = weakref(load(scenePath + "balls/" + ball_name + ".tscn").instance())
@@ -86,8 +88,10 @@ func create_ball(dir, vel):
 		ball_queue.append(Ball.new(ball_name, new_ball))
 		add_child(new_ball.get_ref())
 		used(ball_name)
+		return
 	else:
 		print('too many balls of this type already in the queue')
+		ball_info_gui[current_ball].warn()
 		return
 
 # called when player teleports
