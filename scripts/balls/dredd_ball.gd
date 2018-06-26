@@ -16,7 +16,6 @@ func collided(collision):
 
 # change ball facing direction
 func change_direction(dir):
-	self.rotation = dir.angle()
 	velocity = dir*velocity.length()
 
 # get direction from input
@@ -29,3 +28,7 @@ func _unhandled_input(event):
 		change_direction(Vector2(1,0))
 	if InputMap.event_is_action(event, "ui_up") and event.is_pressed():
 		change_direction(Vector2(0,-1))
+		
+func _physics_process(delta):
+	var direc = velocity.normalized()
+	self.rotation = direc.angle()
