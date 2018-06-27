@@ -149,6 +149,5 @@ func _physics_process(delta):
 		return show_message()
 
 func _unhandled_input(event):
-	print(event)
 	if(!wait_for_input(event)):
 		tutorial = false
