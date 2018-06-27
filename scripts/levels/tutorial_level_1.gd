@@ -81,6 +81,7 @@ func wait_for_input(event):
 		if player.is_on_floor():
 			if Input.is_key_pressed(KEY_SPACE):
 				player.velocity.y -= 150
+				player.get_node("JumpFX").play()
 				return show_message()
 			
 	elif (cur_message == 9):
