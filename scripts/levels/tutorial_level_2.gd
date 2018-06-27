@@ -159,6 +159,9 @@ func wait_for_input(event):
 	elif (cur_message == 26):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()	
+		for i in range(len(balls)):
+			if InputMap.event_is_action(event, "ball_" + str(i)) and event.is_pressed():
+				current_ball = i
 		if InputMap.event_is_action(event, "change_current_ball_down") and event.is_pressed():
 			current_ball = (current_ball-1+len(balls))%len(balls)
 		if InputMap.event_is_action(event, "change_current_ball_up") and event.is_pressed():
