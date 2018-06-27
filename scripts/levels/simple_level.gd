@@ -213,7 +213,7 @@ func load_map():
 			
 			# setting map extremes
 			top_left = Vector2(min(top_left.x, pos.x), min(top_left.y, pos.y))
-			bottom_right = Vector2(max(top_left.x, pos.x), max(top_left.y, pos.y))
+			bottom_right = Vector2(max(bottom_right.x, pos.x), max(bottom_right.y, pos.y))
 			
 			object.set_position(pos)
 			add_child(object)
