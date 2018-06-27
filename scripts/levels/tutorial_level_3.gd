@@ -23,8 +23,6 @@ var messages = ["Alright, let's introduce the other 3 balls",
 				"While we are it, let's talk about walls\nLet me do something...",
 				"Alright. This is a destructible wall\nIt can be broken by the bowling ball",
 				"Throw it as strong as you can to\ndestroy it!",
-				"Throw it as strong as you can to\ndestroy it!",
-				"Throw it as strong as you can to\ndestroy it!",
 				"You did it! There are three more kinds\nof walls", #17
 				"But let's check them in the next level\n",
 				"Reach the exit!",
@@ -123,27 +121,18 @@ func wait_for_input(event):
 	elif (cur_message == 14):
 		if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1 and time_pressed == -1.0:
 			time_pressed = elapsed_time
-			return show_message()
-	
-	elif (cur_message == 15):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			time_pressed = elapsed_time - time_pressed
 			if (player.current_ball):
 				player.current_ball.get_ref().queue_free()
 			create_ball(player.get_local_mouse_position().normalized()*get_intensity(time_pressed), player.velocity)
 			time_pressed = -1.0
-			return show_message()
-			
-	elif (cur_message == 16):
-		if wk.get_ref():
-			cur_message -= 3
-		return show_message()
 	
-	elif (cur_message <= 18):
+	elif (cur_message <= 16):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			return show_message()
 			
-	elif (cur_message == 19):
+	elif (cur_message == 17):
 		for i in range (WALLS_AMOUNT):
 			walls[i].queue_free()
 		cur_message += 1
@@ -155,7 +144,11 @@ func wait_for_input(event):
 	
 	return true
 
+func _physics_process(delta):
+	if cur_message == 14 and !wk.get_ref():
+		return show_message()
 
 func _unhandled_input(event):
+	print(event)
 	if(!wait_for_input(event)):
 		tutorial = false
