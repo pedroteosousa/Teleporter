@@ -124,11 +124,12 @@ func wait_for_input(event):
 		if event is InputEventMouseButton and event.is_pressed() and event.button_index == 1 and time_pressed == -1.0:
 			time_pressed = elapsed_time
 			return show_message()
-		
 	
 	elif (cur_message == 15):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			time_pressed = elapsed_time - time_pressed
+			if (player.current_ball):
+				player.current_ball.get_ref().queue_free()
 			create_ball(player.get_local_mouse_position().normalized()*get_intensity(time_pressed), player.velocity)
 			time_pressed = -1.0
 			return show_message()
@@ -136,11 +137,6 @@ func wait_for_input(event):
 	elif (cur_message == 16):
 		if wk.get_ref():
 			cur_message -= 3
-		#else:
-		#	player.get_current_ball()
-		#	while (player.current_ball != null):
-		#		player.current_ball.queue_free()
-		#		player.get_current_ball()
 		return show_message()
 	
 	elif (cur_message <= 18):
