@@ -24,7 +24,7 @@ var messages = ["Alright, let's introduce the other 3 balls",
 				"Alright. This is a destructible wall\nIt can be broken by the bowling ball",
 				"Throw it as strong as you can to\ndestroy it!",
 				"You did it! There are three more kinds\nof walls", #17
-				"But let's check them in the next level\n",
+				"But let's check them later...\n",
 				"Reach the exit!",
 				]
 

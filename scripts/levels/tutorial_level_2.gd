@@ -31,7 +31,7 @@ var messages = ["Now let's introduce the different balls\nyou can play with",
 				"Anyway, go ahead and try it out and you\nwill see what I'm talking about",
 				"",
 				"You know the drill. Again, if it died\njust press continue. Don't worry!",
-				"Okay, you've played with 4 of them\n3 to go! Let's continue in the next level",
+				"Okay, you've played with 4 of them\n3 to go, but let's continue later...",
 				"Oh, scroll up/down to select ball. Choose\nby pressing 1, 2, 3, etc accordingly too",
 				"Select the desired ball and\ngo ahead to the next level!"
 				]
