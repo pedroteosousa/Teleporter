@@ -5,18 +5,19 @@ var basePath = "res://scenes/"
 onready var save = get_node('/root/save')
 
 var levels = [
-{'name': 'LevelTest1', 'time': INF, 'completed': false},
-{'name': 'TutorialLevel1', 'time': INF, 'completed': false},
-{'name': 'TutorialLevel2', 'time': INF, 'completed': false},
-{'name': 'TutorialLevel3', 'time': INF, 'completed': false},
-{'name': 'TutorialLevel4', 'time': INF, 'completed': false}
+{'name': 'TutorialLevel1', 'time': null, 'completed': false},
+{'name': 'TutorialLevel2', 'time': null, 'completed': false},
+{'name': 'TutorialLevel3', 'time': null, 'completed': false},
+{'name': 'TutorialLevel4', 'time': null, 'completed': false},
 ]
 
 var cur_level = 0
 
+var level_selection = null
+
 func init():
+	level_selection.visible = false
 	save.save_game()
-	print("LEN" + str(len(levels)))
 	var level = levels[cur_level].name
 	level = load(basePath + "levels/" + level + ".tscn").instance()
 	level.set_name("CurrentLevel")
@@ -39,23 +40,38 @@ func _input(event):
 	if InputMap.event_is_action(event, "pause") and event.is_pressed() and !event.is_echo():
 		get_tree().paused = !get_tree().paused
 
-func restart_level():
+func remove_level():
 	var tmp = get_node("CurrentLevel")
+	if tmp == null:
+		return
 	remove_child(tmp)
 	tmp.queue_free()
+
+func restart_level():
+	remove_level()
 	init()
 
+func start_level(level_number):
+	cur_level = level_number
+	restart_level()
+
 func completed_level(elapsed_time):
+	level_selection.visible = true
 	levels[cur_level].completed = true
-	levels[cur_level].time = min(elapsed_time, levels[cur_level].time)
+	if levels[cur_level].time == null:
+		levels[cur_level].time = elapsed_time
+	else:
+		levels[cur_level].time = min(elapsed_time, levels[cur_level].time)
 	save.save_game()
-	if cur_level+1 < len(levels):
-		cur_level += 1
-		restart_level()
+	level_selection.update()
 
 func _ready():
 	save.load_game()
-	init()
+	print(levels)
+	level_selection = get_node("Level Selection")
+	level_selection.init()
+	level_selection.update()
+	#init()
 
 func save():
 	return {'levels': levels}

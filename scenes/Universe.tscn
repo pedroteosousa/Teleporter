@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/universe.gd" type="Script" id=1]
-[ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sounds/music/Mystical-Ocean-Puzzle-Game (1).ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/gui/LevelSelection.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/music/Mystical-Ocean-Puzzle-Game (1).ogg" type="AudioStream" id=4]
 
 [node name="Universe" type="Node" groups=[
 "persistent",
@@ -12,7 +13,9 @@ pause_mode = 2
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="HUD" type="CanvasLayer" parent="." index="0"]
+[node name="Level Selection" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="HUD" type="CanvasLayer" parent="." index="1"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -20,17 +23,19 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="PauseMenu" parent="HUD" index="0" instance=ExtResource( 2 )]
+[node name="PauseMenu" parent="HUD" index="0" instance=ExtResource( 3 )]
 
 margin_left = -100.0
 margin_right = 99.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="1"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0
 bus = "Master"
+
+[node name="CurrentLevel" type="Node" parent="." index="3"]
 
 
