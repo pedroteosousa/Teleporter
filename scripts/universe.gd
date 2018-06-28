@@ -19,7 +19,6 @@ func init():
 	add_child(level)
 
 func _process(delta):
-	print(levels[cur_level].time)
 	# handle pause menu visibility
 	if get_tree().paused != get_node("HUD/PauseMenu").visible:
 		get_node("HUD/PauseMenu").visible = get_tree().paused

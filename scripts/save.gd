@@ -22,7 +22,10 @@ func load_game():
 	save_file.open(SAVE_PATH, File.READ)
 	var data = {}
 	data = JSON.parse(save_file.get_as_text()).result
+	if data == null:
+		return
 	for node_path in data.keys():
 		var node = get_node(node_path)
 		for attribute in data[node_path]:
-			node.set(attribute, data[node_path][attribute])
+			if node != null:
+				node.set(attribute, data[node_path][attribute])

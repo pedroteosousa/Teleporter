@@ -7,10 +7,7 @@ path="res://.import/duplicate_back.png-47d8d9357be1a25bd66b91aec250bcfc.stex"
 [deps]
 
 source_file="res://images/gui/duplicate_back.png"
-source_md5="1bc1eb135f4360c8cc6d13d4508e8887"
-
 dest_files=[ "res://.import/duplicate_back.png-47d8d9357be1a25bd66b91aec250bcfc.stex" ]
-dest_md5="409a75e5366e3b20d9b6d000dc73e904"
 
 [params]
 

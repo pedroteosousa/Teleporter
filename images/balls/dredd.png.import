@@ -7,10 +7,7 @@ path="res://.import/dredd.png-695684299a0af2d2789e8ad37f8061f7.stex"
 [deps]
 
 source_file="res://images/balls/dredd.png"
-source_md5="569fd32fc68b6bf49a938aa7b0aaa378"
-
 dest_files=[ "res://.import/dredd.png-695684299a0af2d2789e8ad37f8061f7.stex" ]
-dest_md5="3f703c403b56d54e2742d0d58478cb08"
 
 [params]
 

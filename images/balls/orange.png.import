@@ -7,10 +7,7 @@ path="res://.import/orange.png-ac960f1dbf073db0b70350fb8863a41d.stex"
 [deps]
 
 source_file="res://images/balls/orange.png"
-source_md5="503e29bf2093544eecd9542bc058b734"
-
 dest_files=[ "res://.import/orange.png-ac960f1dbf073db0b70350fb8863a41d.stex" ]
-dest_md5="feeb06fffa77222bc11cc1af4ac0c26f"
 
 [params]
 

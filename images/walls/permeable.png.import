@@ -7,10 +7,7 @@ path="res://.import/permeable.png-65d32f64b194619b59c10248990d2e10.stex"
 [deps]
 
 source_file="res://images/walls/permeable.png"
-source_md5="1abe674fb8ec2262e5810ea9b74ec08e"
-
 dest_files=[ "res://.import/permeable.png-65d32f64b194619b59c10248990d2e10.stex" ]
-dest_md5="c2a7a6a478047c657cc96d19feccb523"
 
 [params]
 

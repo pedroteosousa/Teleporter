@@ -7,10 +7,7 @@ path="res://.import/redbar.png-54367e63f555e9ffc2664248f062a04c.stex"
 [deps]
 
 source_file="res://images/player/redbar.png"
-source_md5="8d4c371f6a579be822feecac2ceb4b35"
-
 dest_files=[ "res://.import/redbar.png-54367e63f555e9ffc2664248f062a04c.stex" ]
-dest_md5="f1a70eb0276b1036149135d32e6b8d70"
 
 [params]
 

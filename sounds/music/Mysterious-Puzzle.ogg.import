@@ -7,10 +7,7 @@ path="res://.import/Mysterious-Puzzle.ogg-01ca7b174bbf57e50949af702a7c1435.oggst
 [deps]
 
 source_file="res://sounds/music/Mysterious-Puzzle.ogg"
-source_md5="832309e92e0247a238e6fdf3c3cceb3e"
-
 dest_files=[ "res://.import/Mysterious-Puzzle.ogg-01ca7b174bbf57e50949af702a7c1435.oggstr" ]
-dest_md5="191ee7a6c1324ecec592d0904896cb9a"
 
 [params]
 

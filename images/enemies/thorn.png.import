@@ -7,10 +7,7 @@ path="res://.import/thorn.png-e4c108d4893db0b9a9f46d6d54b2680c.stex"
 [deps]
 
 source_file="res://images/enemies/thorn.png"
-source_md5="4d07c97f72bf035cf542f5a01e3ef4d9"
-
 dest_files=[ "res://.import/thorn.png-e4c108d4893db0b9a9f46d6d54b2680c.stex" ]
-dest_md5="89cc7132ebc84203f481849091ff8f1d"
 
 [params]
 
