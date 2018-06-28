@@ -5,6 +5,7 @@ var basePath = "res://scenes/"
 onready var save = get_node('/root/save')
 
 var levels = [
+{'name': 'LevelTest14', 'time': INF, 'completed': false},
 {'name': 'TutorialLevel1', 'time': INF, 'completed': false},
 {'name': 'TutorialLevel2', 'time': INF, 'completed': false},
 {'name': 'TutorialLevel3', 'time': INF, 'completed': false},

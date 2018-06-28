@@ -7,7 +7,10 @@ path="res://.import/exit.png-4921f579e1e36bd5d5e2b4dfc88b821e.stex"
 [deps]
 
 source_file="res://images/mainmenu/exit.png"
+source_md5="c7ffe599c610e8976eac5dbd95525102"
+
 dest_files=[ "res://.import/exit.png-4921f579e1e36bd5d5e2b4dfc88b821e.stex" ]
+dest_md5="4e127f7740daf4dd01f5aa9c3de6fc66"
 
 [params]
 

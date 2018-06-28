@@ -7,7 +7,10 @@ path="res://.import/sticky.png-c1ae20ef34a94ff441a7b5e8a08f2baa.stex"
 [deps]
 
 source_file="res://images/balls/sticky.png"
+source_md5="4e747ca6b92b02d77a4946d6a3807fc3"
+
 dest_files=[ "res://.import/sticky.png-c1ae20ef34a94ff441a7b5e8a08f2baa.stex" ]
+dest_md5="6cf364405d6934cf4945b3457e0a891b"
 
 [params]
 

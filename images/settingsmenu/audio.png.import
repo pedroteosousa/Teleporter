@@ -7,7 +7,10 @@ path="res://.import/audio.png-57ac3cc85fd6130338459196664bc4c3.stex"
 [deps]
 
 source_file="res://images/settingsmenu/audio.png"
+source_md5="1192b3829b957df748c6719a12e7866b"
+
 dest_files=[ "res://.import/audio.png-57ac3cc85fd6130338459196664bc4c3.stex" ]
+dest_md5="ac7587a1a68ea68c7a0498c682cd1de7"
 
 [params]
 

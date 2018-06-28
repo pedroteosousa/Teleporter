@@ -7,7 +7,10 @@ path="res://.import/backgroundbar.jpg-e3a8d2a9caa643851e5c6cdd4d4ff9bc.stex"
 [deps]
 
 source_file="res://images/player/backgroundbar.jpg"
+source_md5="fff984c4b8ab33ba38c791c14850e688"
+
 dest_files=[ "res://.import/backgroundbar.jpg-e3a8d2a9caa643851e5c6cdd4d4ff9bc.stex" ]
+dest_md5="a95491d117f9f2a24ac3f7631b3c4d9b"
 
 [params]
 

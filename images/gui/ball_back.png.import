@@ -7,7 +7,10 @@ path="res://.import/ball_back.png-5a6fed1874ffa00f2705549fe4c56bbc.stex"
 [deps]
 
 source_file="res://images/gui/ball_back.png"
+source_md5="b9d976c09fe05fbbfc4bd96510b829e1"
+
 dest_files=[ "res://.import/ball_back.png-5a6fed1874ffa00f2705549fe4c56bbc.stex" ]
+dest_md5="2d6bdaa218555477514a5c27a2abf6bc"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/bowling.png-fc919c20eaef5ac45a8c8ae2741bef12.stex"
 [deps]
 
 source_file="res://images/balls/bowling.png"
+source_md5="779c59c0f7d0c3fefa52431e98795b58"
+
 dest_files=[ "res://.import/bowling.png-fc919c20eaef5ac45a8c8ae2741bef12.stex" ]
+dest_md5="de2890b3e00e1a93dda225befb163d69"
 
 [params]
 

@@ -7,7 +7,10 @@ path="res://.import/windowsize.png-dbea29ec7b9bbc5ea323875c3eeeb33e.stex"
 [deps]
 
 source_file="res://images/settingsmenu/windowsize.png"
+source_md5="d6e582e7dd65ca73448bf38605b40191"
+
 dest_files=[ "res://.import/windowsize.png-dbea29ec7b9bbc5ea323875c3eeeb33e.stex" ]
+dest_md5="7d3b8cfb71c0dc9e9e99294759af533b"
 
 [params]
 

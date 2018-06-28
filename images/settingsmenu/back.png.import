@@ -7,7 +7,10 @@ path="res://.import/back.png-eed9ed7f776c877bc4f4f3434a14013a.stex"
 [deps]
 
 source_file="res://images/settingsmenu/back.png"
+source_md5="60ddad45ef603770853653063cbe871a"
+
 dest_files=[ "res://.import/back.png-eed9ed7f776c877bc4f4f3434a14013a.stex" ]
+dest_md5="56a05930d055927cde14fc9d65269d9a"
 
 [params]
 

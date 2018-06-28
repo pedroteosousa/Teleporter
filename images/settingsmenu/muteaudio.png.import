@@ -7,7 +7,10 @@ path="res://.import/muteaudio.png-448c4b8c075543df5c0b5970e7ec7b12.stex"
 [deps]
 
 source_file="res://images/settingsmenu/muteaudio.png"
+source_md5="7a248c415b37d1e9c63d16983c6ce34c"
+
 dest_files=[ "res://.import/muteaudio.png-448c4b8c075543df5c0b5970e7ec7b12.stex" ]
+dest_md5="53b9c5130f4b3ac7642b74a8ac29e90c"
 
 [params]
 

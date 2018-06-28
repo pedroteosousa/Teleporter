@@ -7,7 +7,10 @@ path="res://.import/options.png-23c12408e511a1abe37ca119cad3c583.stex"
 [deps]
 
 source_file="res://images/mainmenu/options.png"
+source_md5="1df87e883b9b3fad3a5b032a4de29194"
+
 dest_files=[ "res://.import/options.png-23c12408e511a1abe37ca119cad3c583.stex" ]
+dest_md5="14c622cd102ac1fe480de2dde44a5db5"
 
 [params]
 

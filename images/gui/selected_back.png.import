@@ -7,7 +7,10 @@ path="res://.import/selected_back.png-e4190d788487d1d469d7650c622dee96.stex"
 [deps]
 
 source_file="res://images/gui/selected_back.png"
+source_md5="e0699289c41fccbbe5c5674f96273a7b"
+
 dest_files=[ "res://.import/selected_back.png-e4190d788487d1d469d7650c622dee96.stex" ]
+dest_md5="ca25e2e7d6c40756a2e8befcfc40b636"
 
 [params]
 
