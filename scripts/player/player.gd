@@ -4,6 +4,7 @@ var gravity = Vector2(0, 100)
 var velocity = Vector2(0, 0)
 
 var current_ball = null
+var is_dredd = false
 
 # should camera follow the ball
 var should_follow = false
@@ -11,10 +12,18 @@ var should_follow = false
 var level
 
 func get_current_ball():
-	if len(get_parent().ball_queue):
-		current_ball = get_parent().ball_queue[0].obj
+	var n = len(get_parent().ball_queue)
+	if n != 0:
+			if get_parent().ball_queue[n-1].ball_name == "DreddBall":
+				current_ball = get_parent().ball_queue[n-1].obj
+				is_dredd = true
+				print("oi")
+			else:
+				current_ball = get_parent().ball_queue[0].obj
+				is_dredd = false
 	else:
 		current_ball = null
+		is_dredd = false
 
 func _unhandled_input(event):
 	# jump
@@ -63,14 +72,15 @@ func _physics_process(delta):
 	else:
 		self.get_child(3).hide()
 		self.get_child(4).hide()
-	
+	if is_dredd:
+		should_follow = true
 	# update camera behaviour
 	if should_follow:
-		if current_ball and current_ball.get_ref():
+		if current_ball and	current_ball.get_ref():
 			var screen_size = get_viewport_rect().size
 			var dist = current_ball.get_ref().get_position() - get_position()
 			var zoom = max(1.0, max(2*abs(dist.x / screen_size.x), 2*abs(dist.y / screen_size.y)))
-			follow_ball(dist/2.0, Vector2(zoom, zoom), true)
+			follow_ball(dist/2.0, Vector2(zoom, zoom), true) 
 		else:
 			var screen_size = get_viewport_rect().size
 			var dist = get_parent().center - get_position()
