@@ -7,7 +7,10 @@ path="res://.import/level_selection.png-a671c5be8867e1977b262aadac891048.stex"
 [deps]
 
 source_file="res://images/gui/level_selection.png"
+source_md5="21a7c9506e19da45dddceb526860f36e"
+
 dest_files=[ "res://.import/level_selection.png-a671c5be8867e1977b262aadac891048.stex" ]
+dest_md5="9facab794e0f436238da1e8d924cf0a3"
 
 [params]
 

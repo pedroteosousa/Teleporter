@@ -13,7 +13,7 @@
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
-level_name = "Level Test 1"
+level_name = "Level 2"
 label_duration = 3
 queue_size = 10
 tutorial = false
