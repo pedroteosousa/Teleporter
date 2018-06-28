@@ -8,6 +8,10 @@ var WALLS1_AMOUNT = 4
 var WALLS2_AMOUNT = 3
 var hidden_utility
 
+func init():
+	balls = [["SimpleBall", 3], ["StickyBall", 2]]
+
+
 func utility(id, enter):
 	if (enter):
 		if (id == "0"):
