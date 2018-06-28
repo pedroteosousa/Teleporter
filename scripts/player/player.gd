@@ -17,7 +17,6 @@ func get_current_ball():
 			if get_parent().ball_queue[n-1].ball_name == "DreddBall":
 				current_ball = get_parent().ball_queue[n-1].obj
 				is_dredd = true
-				print("oi")
 			else:
 				current_ball = get_parent().ball_queue[0].obj
 				is_dredd = false
@@ -72,10 +71,8 @@ func _physics_process(delta):
 	else:
 		self.get_child(3).hide()
 		self.get_child(4).hide()
-	if is_dredd:
-		should_follow = true
 	# update camera behaviour
-	if should_follow:
+	if should_follow or is_dredd:
 		if current_ball and	current_ball.get_ref():
 			var screen_size = get_viewport_rect().size
 			var dist = current_ball.get_ref().get_position() - get_position()

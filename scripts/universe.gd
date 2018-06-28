@@ -7,12 +7,15 @@ onready var save = get_node('/root/save')
 var levels = [
 {'name': 'TutorialLevel1', 'time': INF, 'completed': false},
 {'name': 'TutorialLevel2', 'time': INF, 'completed': false},
+{'name': 'TutorialLevel3', 'time': INF, 'completed': false},
+{'name': 'TutorialLevel4', 'time': INF, 'completed': false}
 ]
 
 var cur_level = 0
 
 func init():
 	save.save_game()
+	print("LEN" + str(len(levels)))
 	var level = levels[cur_level].name
 	level = load(basePath + "levels/" + level + ".tscn").instance()
 	level.set_name("CurrentLevel")
