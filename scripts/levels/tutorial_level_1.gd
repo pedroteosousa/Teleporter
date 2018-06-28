@@ -11,8 +11,11 @@ var messages = ["Welcome to the tutorial!\nClick on mouse left button to continu
 				"Hold the left button of the mouse to throw\nthe ball with the desired force!",
 				"The force bar will go up and down. Release\nthe left mouse button to throw the ball!",
 				"You may teleport yourself to the ball\nPress the right mouse button to do so!",
+				"If you have multiple balls you teleport\n in the order you threw them",
 				"Great! That's the basic mechanic of\nthe game. But... what's the goal?",
 				"Well. This is the exit. Every level of\nthe game has one. Basically, find it and\nteleport yourself there",
+				"If you press tab while a ball is moving\nthe camera is focused on the ball",
+				"Also if you don't have any balls and press\ntab, it zooms out to show the entire level",
 				"One more thing: you may jump by pressing\nspace when you are on the floor. Try it!",
 				"That's it for now. Get outta here!\nLet me help and remove that wall for you...",
 				"There you go!\nTeleport yourself to the exit!"
@@ -68,30 +71,38 @@ func wait_for_input(event):
 			
 	elif (cur_message == 6):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
+			return show_message()
+			
+	elif (cur_message == 7):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			player.get_node("Camera2D").zoom = Vector2(0.5,0.5)
 			player.get_node("Camera2D").position = 32*Vector2(24.5,2.5) - player.get_position()
 			return show_message()
 
-	elif (cur_message == 7):
+	elif (cur_message == 8):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			player.follow_ball()
 			return show_message()
 			
-	elif (cur_message == 8):
+	elif (cur_message <= 10):
+		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
+			return show_message()
+			
+	elif (cur_message == 11):
 		if player.is_on_floor():
 			if Input.is_key_pressed(KEY_SPACE):
 				player.velocity.y -= 150
 				player.get_node("JumpFX").play()
 				return show_message()
 			
-	elif (cur_message == 9):
+	elif (cur_message == 12):
 		if event is InputEventMouseButton and !event.is_pressed() and event.button_index == 1:
 			for i in range (WALLS_AMOUNT):
 				walls[i].queue_free()
 			return show_message()
 			
 			
-	elif (cur_message == 10):
+	elif (cur_message == 13):
 		return false
 			
 	#last one:
