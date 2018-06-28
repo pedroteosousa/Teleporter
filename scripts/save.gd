@@ -3,8 +3,6 @@ extends Node
 const SAVE_PATH = "res://save.json"
 
 func _ready():
-	#load_game()
-	#print(self.get_path())
 	pass
 
 func save_game():
@@ -27,7 +25,4 @@ func load_game():
 	for node_path in data.keys():
 		var node = get_node(node_path)
 		for attribute in data[node_path]:
-			if attribute == "pos":
-				node.global_position = Vector2(data[node_path]['pos']['x'],data[node_path]['pos']['y'])
-			else:
-				node.set(attribute, data[node_path][attribute])
+			node.set(attribute, data[node_path][attribute])

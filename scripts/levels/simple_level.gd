@@ -189,7 +189,7 @@ func update_balls():
 # this function is called when user completes the level
 func completed():
 	print("level finished in " + str(elapsed_time) + " seconds")
-	get_parent().completed_level()
+	get_parent().completed_level(elapsed_time)
 	queue_free()
 
 func get_size_from_sprite(object):

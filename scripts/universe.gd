@@ -2,17 +2,24 @@ extends Node
 
 var basePath = "res://scenes/"
 
-var levels = ["TutorialLevel1", "TutorialLevel2", "TutorialLevel3", "TutorialLevel4",
-			  "LevelTest13", "LevelTest4", "LevelTest5", "LevelTest6", "LevelTest1"]
+onready var save = get_node('/root/save')
+
+var levels = [
+{'name': 'TutorialLevel1', 'time': INF, 'completed': false},
+{'name': 'TutorialLevel2', 'time': INF, 'completed': false},
+]
+
 var cur_level = 0
 
 func init():
-	var level = levels[cur_level]
+	save.save_game()
+	var level = levels[cur_level].name
 	level = load(basePath + "levels/" + level + ".tscn").instance()
 	level.set_name("CurrentLevel")
 	add_child(level)
 
 func _process(delta):
+	print(levels[cur_level].time)
 	# handle pause menu visibility
 	if get_tree().paused != get_node("HUD/PauseMenu").visible:
 		get_node("HUD/PauseMenu").visible = get_tree().paused
@@ -35,10 +42,17 @@ func restart_level():
 	tmp.queue_free()
 	init()
 
-func completed_level():
+func completed_level(elapsed_time):
+	levels[cur_level].completed = true
+	levels[cur_level].time = min(elapsed_time, levels[cur_level].time)
+	save.save_game()
 	if cur_level+1 < len(levels):
 		cur_level += 1
 		restart_level()
 
 func _ready():
+	save.load_game()
 	init()
+
+func save():
+	return {'levels': levels}
