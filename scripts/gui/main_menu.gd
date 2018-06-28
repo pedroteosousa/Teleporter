@@ -2,15 +2,30 @@ extends VBoxContainer
 
 onready var music = get_node("/root/Music")
 
+var elapsed_time = 0
+var new_balloon_time = 1
+
+var scenePath = "res://scenes/"
+var ball_queue = []
+
 func _ready():
 	get_tree().paused = false
 	music.play()
-	get_children()[0].grab_focus()
+	get_children()[0].get_children()[1].grab_focus()
 	for i in get_children():
-		i.connect("pressed", self, "on_pressed", [i])
+		i.get_children()[0].visible = false
+		var button = i.get_children()[1]
+		button.connect("pressed", self, "on_pressed", [button])
 
-func on_pressed(button_name):
-	name = button_name.get_name()
+func _process(delta):
+	for i in get_children():
+		var button = i.get_children()[1]
+		if button.is_hovered():
+			button.grab_focus()
+		i.get_children()[0].visible = button.has_focus()
+
+func on_pressed(button):
+	var name = button.get_name()
 	if name == "New game":
 		print("click on New game")
 		get_tree().change_scene("res://scenes/Universe.tscn")
