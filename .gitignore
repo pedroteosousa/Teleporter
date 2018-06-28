@@ -1,2 +1,5 @@
 # MAC files
 .DS_Store
+
+*.md5
+*.stex
