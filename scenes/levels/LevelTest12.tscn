@@ -6,12 +6,12 @@
 [ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=5]
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
-level_name = "Level 6"
+level_name = "Level 4"
 label_duration = 3
 queue_size = 10
 tutorial = false

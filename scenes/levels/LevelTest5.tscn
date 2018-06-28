@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/levels/tilemaps/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=5]
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 pause_mode = 1
 script = ExtResource( 1 )
@@ -30,7 +30,7 @@ tile_data = PoolIntArray( 262161, 0, 0 )
 
 [node name="Exit" type="Area2D" parent="." index="4"]
 
-position = Vector2( 552, -504 )
+position = Vector2( 552, -500.047 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

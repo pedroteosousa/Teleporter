@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/levels/tilemaps/enemies.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/utility/Utility.tscn" type="PackedScene" id=6]
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 pause_mode = 1
 script = ExtResource( 1 )
@@ -15,6 +15,7 @@ _sections_unfolded = [ "Pause" ]
 level_name = "Test Level 3"
 label_duration = 3
 queue_size = 10
+tutorial = false
 
 [node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
 
