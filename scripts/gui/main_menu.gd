@@ -5,6 +5,8 @@ onready var music = get_node("/root/Music")
 var elapsed_time = 0
 var new_balloon_time = 1
 
+onready var save = get_node('/root/save')
+
 var scenePath = "res://scenes/"
 var ball_queue = []
 
@@ -28,10 +30,12 @@ func on_pressed(button):
 	var name = button.get_name()
 	if name == "New game":
 		print("click on New game")
+		save.save_game()
 		get_tree().change_scene("res://scenes/Universe.tscn")
 		music.stop()
 	elif name == "Continue":
 		print("click on Continue")
+		get_tree().change_scene("res://scenes/Universe.tscn")
 		music.stop()
 	elif name == "Options":
 		print("click on Options")
