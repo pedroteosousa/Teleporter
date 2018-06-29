@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/universe.gd" type="Script" id=1]
 [ext_resource path="res://scenes/gui/LevelSelection.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/gui/PauseMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sounds/music/Mystical-Ocean-Puzzle-Game (1).ogg" type="AudioStream" id=4]
+[ext_resource path="res://scenes/Credits.tscn" type="PackedScene" id=5]
 
 [node name="Universe" type="Node" index="0" groups=[
 "persistent",
@@ -32,10 +33,16 @@ margin_right = 99.0
 
 stream = ExtResource( 4 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 
 [node name="CurrentLevel" type="Node" parent="." index="3"]
+
+[node name="Credits" parent="." index="4" instance=ExtResource( 5 )]
+
+visible = false
+_sections_unfolded = [ "Visibility" ]
 
 

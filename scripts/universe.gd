@@ -16,7 +16,7 @@ var levels = [
 {'name': 'LevelTest12', 'time': null, 'completed': false},
 {'name': 'LevelTest11', 'time': null, 'completed': false},
 {'name': 'LevelTest6', 'time': null, 'completed': false},
-{'name': 'LevelTest10', 'time': null, 'completed': false},
+{'name': 'LevelTest10', 'time': null, 'completed': true},
 {'name': 'LevelTest13', 'time': null, 'completed': false},
 ]
 
@@ -25,6 +25,7 @@ var cur_level = 0
 var level_selection = null
 
 func init():
+	get_node("Credits").visible = false
 	level_selection.visible = false
 	save.save_game()
 	var level = levels[cur_level].name
@@ -65,6 +66,9 @@ func start_level(level_number):
 	restart_level()
 
 func completed_level(elapsed_time):
+	if cur_level == len(levels)-1:
+		get_node("Credits").visible = true
+		return
 	level_selection.visible = true
 	levels[cur_level].completed = true
 	if levels[cur_level].time == null:
@@ -75,6 +79,7 @@ func completed_level(elapsed_time):
 	level_selection.update()
 
 func _ready():
+	get_node("Credits").visible = false
 	save.load_game()
 	print(levels)
 	level_selection = get_node("Level Selection")
