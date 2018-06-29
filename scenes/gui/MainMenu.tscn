@@ -2,8 +2,8 @@
 
 [ext_resource path="res://fonts/RobotoMono/TitleMenuScreen.res" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/gui/main_menu.gd" type="Script" id=2]
-[ext_resource path="res://resources/button_style.res" type="StyleBox" id=3]
-[ext_resource path="res://fonts/RobotoMono/main_menu_font.res" type="DynamicFont" id=4]
+[ext_resource path="res://fonts/RobotoMono/main_menu_font.res" type="DynamicFont" id=3]
+[ext_resource path="res://resources/button_style.res" type="StyleBox" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -26,7 +26,7 @@ content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -121,77 +121,15 @@ alignment = 1
 script = ExtResource( 2 )
 _sections_unfolded = [ "Anchor", "Focus", "Margin", "Mouse", "Size Flags", "Theme", "custom_constants" ]
 
-[node name="ButtonCont" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Menu Options" index="0"]
+[node name="ButtonCont2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Menu Options" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 4.0
+margin_top = 41.0
 margin_right = 600.0
-margin_bottom = 77.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Menu Options/ButtonCont" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 50.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 50, 0 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Rect", "Visibility" ]
-
-[node name="New game" type="Button" parent="HBoxContainer/VBoxContainer/Menu Options/ButtonCont" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 54.0
-margin_right = 404.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 350, 35 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
-custom_styles/focus = ExtResource( 3 )
-custom_fonts/font = ExtResource( 4 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "New Game"
-flat = true
-align = 0
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_fonts", "custom_styles" ]
-
-[node name="ButtonCont2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Menu Options" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 78.0
-margin_right = 600.0
-margin_bottom = 151.0
+margin_bottom = 114.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -235,7 +173,7 @@ mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 custom_styles/focus = SubResource( 1 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -245,8 +183,71 @@ flat = true
 align = 0
 _sections_unfolded = [ "Mouse", "Rect", "Size Flags", "Visibility", "custom_fonts", "custom_styles" ]
 
+[node name="ButtonCont" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Menu Options" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 115.0
+margin_right = 600.0
+margin_bottom = 188.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Menu Options/ButtonCont" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 50.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 50, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="New game" type="Button" parent="HBoxContainer/VBoxContainer/Menu Options/ButtonCont" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_right = 404.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 350, 35 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_styles/focus = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "New Game"
+flat = true
+align = 0
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_fonts", "custom_styles" ]
+
 [node name="ButtonCont3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Menu Options" index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -261,6 +262,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Visibility" ]
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Menu Options/ButtonCont3" index="0"]
 
@@ -297,7 +299,7 @@ mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 custom_styles/focus = SubResource( 2 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -313,9 +315,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 226.0
+margin_top = 189.0
 margin_right = 600.0
-margin_bottom = 299.0
+margin_bottom = 262.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -359,7 +361,7 @@ mouse_default_cursor_shape = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
 custom_styles/focus = SubResource( 3 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
