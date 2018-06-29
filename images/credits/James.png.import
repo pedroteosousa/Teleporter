@@ -7,7 +7,10 @@ path="res://.import/James.png-a14d9d5086d67a98ec925ead936c6e1f.stex"
 [deps]
 
 source_file="res://images/credits/James.png"
+source_md5="b742b82c7a18ab124162fd309c4b1a08"
+
 dest_files=[ "res://.import/James.png-a14d9d5086d67a98ec925ead936c6e1f.stex" ]
+dest_md5="e25c7637a80dee52e985eeb06a67fcd8"
 
 [params]
 

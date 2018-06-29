@@ -7,7 +7,10 @@ path="res://.import/Teos.png-704ae4d6fdd255a45d4b895029edb391.stex"
 [deps]
 
 source_file="res://images/credits/Teos.png"
+source_md5="3906bafe2402700a251a53f9d681d1d2"
+
 dest_files=[ "res://.import/Teos.png-704ae4d6fdd255a45d4b895029edb391.stex" ]
+dest_md5="39c35c8fd6d3d275dded57863121404b"
 
 [params]
 

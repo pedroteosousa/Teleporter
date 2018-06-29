@@ -16,7 +16,7 @@ var levels = [
 {'name': 'LevelTest12', 'time': null, 'completed': false},
 {'name': 'LevelTest11', 'time': null, 'completed': false},
 {'name': 'LevelTest6', 'time': null, 'completed': false},
-{'name': 'LevelTest10', 'time': null, 'completed': true},
+{'name': 'LevelTest10', 'time': null, 'completed': false},
 {'name': 'LevelTest13', 'time': null, 'completed': false},
 ]
 

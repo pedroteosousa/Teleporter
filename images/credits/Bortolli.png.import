@@ -7,7 +7,10 @@ path="res://.import/Bortolli.png-e8d60906940bfa52459c45c1824fcb35.stex"
 [deps]
 
 source_file="res://images/credits/Bortolli.png"
+source_md5="99773536a5ebf8cc5811caab35d27341"
+
 dest_files=[ "res://.import/Bortolli.png-e8d60906940bfa52459c45c1824fcb35.stex" ]
+dest_md5="ff29fe76cb1ddfba76212e3daec7d3ac"
 
 [params]
 
