@@ -72,8 +72,6 @@ func _physics_process(delta):
 		self.get_child(3).hide()
 		self.get_child(4).hide()
 	# update camera behaviour
-	print('is_dredd = ' + str(is_dredd))
-	print('should_follow = ' + str(should_follow))
 	if should_follow or is_dredd:
 		if current_ball and	current_ball.get_ref():
 			var screen_size = get_viewport_rect().size
