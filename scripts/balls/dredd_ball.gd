@@ -12,6 +12,7 @@ func go(dir, vel):
 
 # destroy on collision
 func collided(collision):
+	get_parent().reuse("DreddBall")
 	queue_free()
 
 # change ball facing direction

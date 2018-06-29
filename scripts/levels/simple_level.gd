@@ -9,7 +9,7 @@ export (int) var queue_size = 10
 export (bool) var tutorial = false
 
 # array of usable balls in this level ([ball_name, quantity], if quantity = -1, you have infinite balls of that type)
-var balls = [["SimpleBall", -1], ["DreddBall", -1], ["CrazyBall", -1], ["StickyBall", -1], ["BowlingBall", -1], ["PoolBall", -1], ["BalloonBall", -1]]
+var balls = [["SimpleBall", 10], ["DreddBall", 100], ["CrazyBall", 10], ["StickyBall", 10], ["BowlingBall", 10], ["PoolBall", 10], ["BalloonBall", 10]]
 # current selected ball
 var current_ball = 0
 
@@ -94,11 +94,16 @@ func create_ball(dir, vel):
 		ball_info_gui[current_ball].warn()
 		return
 
-# called when player teleports
+# called when player releases a ball
 func used(ball_name):
 	for ball in balls:
 		if ball[0] == ball_name:
 			ball[1] -= 1
+
+func reuse(ball_name):
+	for ball in balls:
+		if ball[0] == ball_name:
+			ball[1] += 1
 
 # drawing color on top of the exit
 func _draw():

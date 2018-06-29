@@ -2,6 +2,7 @@ extends "res://scripts/balls/simple_ball.gd"
 
 # destroy on collision
 func collided(collision):
+	get_parent().reuse("CrazyBall")
 	queue_free()
 
 # get current amplitude
