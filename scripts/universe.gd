@@ -5,18 +5,19 @@ var basePath = "res://scenes/"
 onready var save = get_node('/root/save')
 
 var levels = [
-{'name': 'TutorialLevel1', 'time': null, 'completed': false},
-{'name': 'LevelTest5', 'time': null, 'completed': false},
-{'name': 'TutorialLevel2', 'time': null, 'completed': false},
-{'name': 'LevelTest1', 'time': null, 'completed': false},
-{'name': 'LevelTest14', 'time': null, 'completed': false},
-{'name': 'TutorialLevel3', 'time': null, 'completed': false},
-{'name': 'LevelTest12', 'time': null, 'completed': false},
-{'name': 'TutorialLevel4', 'time': null, 'completed': false},
-{'name': 'LevelTest11', 'time': null, 'completed': false},
-{'name': 'LevelTest6', 'time': null, 'completed': false},
-{'name': 'LevelTest10', 'time': null, 'completed': false},
-{'name': 'LevelTest13', 'time': null, 'completed': false},
+{'name': 'TutorialLevel1', 'time': null, 'completed': true},
+{'name': 'LevelTest2', 'time': null, 'completed': true},
+{'name': 'LevelTest5', 'time': null, 'completed': true},
+{'name': 'TutorialLevel2', 'time': null, 'completed': true},
+{'name': 'LevelTest1', 'time': null, 'completed': true},
+{'name': 'TutorialLevel3', 'time': null, 'completed': true},
+{'name': 'LevelTest14', 'time': null, 'completed': true},
+{'name': 'TutorialLevel4', 'time': null, 'completed': true},
+{'name': 'LevelTest12', 'time': null, 'completed': true},
+{'name': 'LevelTest11', 'time': null, 'completed': true},
+{'name': 'LevelTest6', 'time': null, 'completed': true},
+{'name': 'LevelTest10', 'time': null, 'completed': true},
+{'name': 'LevelTest13', 'time': null, 'completed': true},
 ]
 
 var cur_level = 0
