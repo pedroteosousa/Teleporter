@@ -10,6 +10,9 @@ func go(dir, vel):
 		dir.x = 0
 	change_direction(dir.normalized())
 
+func timeout():
+	collided(null)
+
 # destroy on collision
 func collided(collision):
 	get_parent().reuse("DreddBall")
